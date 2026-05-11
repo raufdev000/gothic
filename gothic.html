@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gothic Collection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css">
+<style>
+
+:root {
+  --black:       #080808;
+  --dark:        #0f0f0f;
+  --card:        #131313;
+  --card-hover:  #181818;
+  --border:      rgba(139,0,0,0.2);
+  --border-dim:  rgba(255,255,255,0.05);
+  --red:         #8b0000;
+  --red-light:   #c0392b;
+  --red-glow:    rgba(139,0,0,0.15);
+  --text:        #b8b0a8;
+  --text-dim:    #5a5450;
+  --white:       #f0ece8;
+  --gold:        #8a6f3f;
+
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  padding-top: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+}
+
+.gothic-hero { position: relative; width: 100%; overflow: hidden; }
+.gothic-carousel { position: relative; }
+.gothic-carousel .carousel-inner { height: 72vh; min-height: 460px; max-height: 680px; }
+.gothic-carousel .carousel-item { height: 100%; }
+
+.carousel-slide { height: 100%; position: relative; display: flex; align-items: center; overflow: hidden; }
+.slide-a { background: linear-gradient(135deg, #0a0005 0%, #1a0010 50%, #0d000a 100%); }
+.slide-b { background: linear-gradient(135deg, #050008 0%, #0f0015 50%, #080008 100%); }
+.slide-c { background: linear-gradient(135deg, #08000a 0%, #150008 50%, #0a0005 100%); }
+
+.slide-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 0.45; transition: transform 6s ease; }
+.carousel-item.active .slide-img { transform: scale(1.04); }
+
+.slide-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(8,8,8,0.92) 0%, rgba(8,8,8,0.55) 50%, rgba(8,8,8,0.2) 100%); z-index: 1; }
+.slide-overlay::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: linear-gradient(to top, var(--black), transparent); }
+
+.slide-content { position: relative; z-index: 2; padding: 0 60px; max-width: 600px; }
+
+.slide-tag { font-family: var(--font-head); font-size: 9px; letter-spacing: 6px; text-transform: uppercase; color: var(--red-light); margin-bottom: 16px; opacity: 0; }
+.carousel-item.active .slide-tag { animation: slideUp 0.6s ease 0.2s forwards; }
+
+.slide-title { font-family: var(--font-head); font-size: clamp(28px, 5vw, 60px); font-weight: 900; color: var(--white); line-height: 1.05; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; text-shadow: 0 0 60px rgba(139,0,0,0.4); opacity: 0; }
+.carousel-item.active .slide-title { animation: slideUp 0.6s ease 0.35s forwards; }
+
+.slide-desc { font-size: clamp(13px, 1.4vw, 16px); font-style: italic; color: var(--text); margin-bottom: 28px; line-height: 1.6; opacity: 0; }
+.carousel-item.active .slide-desc { animation: slideUp 0.6s ease 0.5s forwards; }
+
+.slide-cta { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-head); font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--white); background: transparent; border: 1px solid rgba(255,255,255,0.6); padding: 14px 32px; text-decoration: none; transition: background 0.3s, border-color 0.3s, color 0.3s; opacity: 0; border-radius: 50px; }
+.carousel-item.active .slide-cta { animation: slideUp 0.6s ease 0.65s forwards; }
+.slide-cta:hover { background: var(--red); border-color: var(--red); color: #fff; }
+.slide-cta svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.3s; }
+.slide-cta:hover svg { transform: translateX(4px); }
+
+.gothic-carousel .carousel-control-prev, .gothic-carousel .carousel-control-next { width: 50px; opacity: 1; z-index: 10; }
+.gothic-carousel .carousel-control-prev-icon, .gothic-carousel .carousel-control-next-icon { display: none; }
+.ctrl-btn { width: 42px; height: 42px; border: 1px solid rgba(255,255,255,0.2); border-radius: 0; display: flex; align-items: center; justify-content: center; color: #fff; transition: background 0.3s, border-color 0.3s; }
+.ctrl-btn:hover { background: var(--red); border-color: var(--red); }
+.ctrl-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.gothic-carousel .carousel-indicators { bottom: 20px; }
+.gothic-carousel .carousel-indicators button { width: 24px; height: 2px; background: rgba(255,255,255,0.3); border: none; border-radius: 0; transition: background 0.3s, width 0.3s; }
+.gothic-carousel .carousel-indicators button.active { background: var(--red-light); width: 40px; }
+
+.collection-bar { background: var(--dark); border-bottom: 1px solid var(--border-dim); padding: 0; position: sticky; top: 0; z-index: 100; }
+.collection-tabs { display: flex; align-items: center; overflow-x: auto; scrollbar-width: none; gap: 0; }
+.collection-tabs::-webkit-scrollbar { display: none; }
+.col-tab { font-family: var(--font-head); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim); background: none; border: none; border-bottom: 2px solid transparent; padding: 16px 22px; cursor: pointer; white-space: nowrap; transition: color 0.3s, border-color 0.3s; }
+.col-tab:hover { color: var(--white); }
+.col-tab.active { color: var(--white); border-bottom-color: var(--red); }
+.col-tab-count { display: inline-block; font-size: 8px; color: var(--text-dim); margin-left: 5px; }
+
+.shop-wrapper { max-width: 1280px; margin: 0 auto; padding: 40px 20px 80px; display: grid; grid-template-columns: 220px 1fr; gap: 32px; }
+
+.filter-sidebar { position: sticky; top: 60px; height: fit-content; }
+.filter-group { margin-bottom: 28px; border-bottom: 1px solid var(--border-dim); padding-bottom: 24px; }
+.filter-group:last-child { border-bottom: none; }
+.filter-heading { font-family: var(--font-head); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--white); margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+.filter-heading svg { width: 12px; height: 12px; stroke: var(--text-dim); fill: none; stroke-width: 2; stroke-linecap: round; transition: transform 0.3s; }
+.filter-heading.open svg { transform: rotate(180deg); }
+
+.filter-options { display: flex; flex-direction: column; gap: 8px; }
+.filter-opt { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; color: var(--text); transition: color 0.3s; }
+.filter-opt:hover { color: var(--white); }
+.filter-opt input[type="checkbox"] { appearance: none; width: 14px; height: 14px; border: 1px solid var(--border); background: transparent; cursor: pointer; position: relative; flex-shrink: 0; transition: border-color 0.3s, background 0.3s; }
+.filter-opt input[type="checkbox"]:checked { background: var(--red); border-color: var(--red); }
+.filter-opt input[type="checkbox"]:checked::after { content: ''; position: absolute; top: 1px; left: 4px; width: 4px; height: 7px; border: 2px solid #fff; border-top: none; border-left: none; transform: rotate(45deg); }
+.opt-count { margin-left: auto; font-size: 11px; color: var(--text-dim); }
+
+.price-range { display: flex; gap: 8px; align-items: center; }
+.price-input { width: 80px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--white); font-family: var(--font-body); font-size: 13px; padding: 7px 10px; outline: none; transition: border-color 0.3s; }
+.price-input:focus { border-color: var(--red-light); }
+.price-sep { color: var(--text-dim); font-size: 12px; }
+
+.products-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+.toolbar-left { font-family: var(--font-body); font-size: 13px; font-style: italic; color: var(--text-dim); }
+.toolbar-left span { color: var(--white); font-style: normal; }
+.toolbar-right { display: flex; align-items: center; gap: 12px; }
+
+.sort-select { font-family: var(--font-head); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; background: transparent; border: 1px solid var(--border); color: var(--text); padding: 8px 14px; outline: none; cursor: pointer; -webkit-appearance: none; transition: border-color 0.3s; }
+.sort-select option { background: #1a1a1a; }
+.sort-select:focus { border-color: var(--red-light); }
+
+.view-btns { display: flex; gap: 4px; }
+.view-btn { width: 32px; height: 32px; background: transparent; border: 1px solid var(--border-dim); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: border-color 0.3s, background 0.3s; }
+.view-btn svg { width: 14px; height: 14px; stroke: var(--text-dim); fill: none; stroke-width: 1.5; transition: stroke 0.3s; }
+.view-btn.active, .view-btn:hover { border-color: var(--red); background: var(--red-glow); }
+.view-btn.active svg, .view-btn:hover svg { stroke: var(--white); }
+
+.prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); }
+.prod-grid.list-view { grid-template-columns: 1fr; }
+
+.gothic-card { background: var(--card); position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s; }
+.gothic-card:hover { background: var(--card-hover); }
+.gc-img-wrap { position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #0e0e0e; }
+.gc-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.7s ease, opacity 0.4s; opacity: 0.88; }
+.gothic-card:hover .gc-img-wrap img { transform: scale(1.06); opacity: 1; }
+
+.gc-badge { position: absolute; top: 12px; left: 12px; font-family: var(--font-head); font-size: 8px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; z-index: 2; }
+.badge-new    { background: var(--red); color: #fff; }
+.badge-sale   { background: #1a1a1a; color: var(--red-light); border: 1px solid var(--red); }
+.badge-limited{ background: var(--gold); color: #000; }
+
+.gc-wish { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; background: rgba(8,8,8,0.7); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 3; opacity: 0; transform: translateX(8px); transition: opacity 0.3s, transform 0.3s, background 0.3s; }
+.gothic-card:hover .gc-wish { opacity: 1; transform: translateX(0); }
+.gc-wish svg { width: 14px; height: 14px; stroke: var(--text); fill: none; stroke-width: 1.5; transition: stroke 0.3s, fill 0.3s; }
+.gc-wish:hover { background: var(--red); border-color: var(--red); }
+.gc-wish:hover svg { stroke: #fff; }
+.gc-wish.wished svg { fill: var(--red-light); stroke: var(--red-light); }
+
+.gc-quick { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(8,8,8,0.9); border-top: 1px solid var(--border); padding: 12px 16px; transform: translateY(100%); transition: transform 0.35s ease; z-index: 3; }
+.gothic-card:hover .gc-quick { transform: translateY(0); }
+
+.size-row { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+.size-chip { font-family: var(--font-head); font-size: 8px; letter-spacing: 1px; color: var(--text); border: 1px solid rgba(255,255,255,0.1); padding: 4px 9px; cursor: pointer; transition: border-color 0.2s, color 0.2s, background 0.2s; }
+.size-chip:hover, .size-chip.selected { border-color: var(--red-light); color: var(--white); background: var(--red-glow); }
+
+.quick-add-btn { width: 100%; font-family: var(--font-head); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--white); background: var(--red); border: none; padding: 10px; cursor: pointer; transition: background 0.3s; }
+.quick-add-btn:hover { background: var(--red-light); }
+
+.gc-info { padding: 14px 16px 16px; }
+.gc-category { font-family: var(--font-head); font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 5px; }
+.gc-name { font-family: var(--font-head); font-size: clamp(11px, 1vw, 13px); font-weight: 600; color: var(--white); letter-spacing: 1px; margin-bottom: 8px; line-height: 1.3; }
+.gc-price { display: flex; align-items: center; gap: 8px; }
+.price-now { font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--white); }
+.price-old { font-family: var(--font-body); font-size: 13px; color: var(--text-dim); text-decoration: line-through; }
+.price-save { font-size: 11px; color: var(--red-light); font-style: italic; }
+.gc-stars { display: flex; gap: 2px; margin-top: 6px; }
+.star { width: 10px; height: 10px; fill: var(--gold); }
+.star.empty { fill: var(--text-dim); }
+
+.featured-banner { grid-column: 1 / -1; background: var(--dark); border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 28px 36px; gap: 20px; flex-wrap: wrap; }
+.fb-text .fb-label { font-family: var(--font-head); font-size: 8px; letter-spacing: 4px; color: var(--red-light); text-transform: uppercase; margin-bottom: 6px; }
+.fb-text h3 { font-family: var(--font-head); font-size: clamp(16px, 2.5vw, 22px); color: var(--white); letter-spacing: 1px; margin-bottom: 4px; }
+.fb-text p { font-size: 14px; font-style: italic; color: var(--text-dim); }
+.fb-btn { font-family: var(--font-head); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--white); background: transparent; border: 1px solid rgba(255,255,255,0.2); padding: 12px 26px; cursor: pointer; white-space: nowrap; text-decoration: none; transition: background 0.3s, border-color 0.3s; display: inline-block; }
+.fb-btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+
+.gothic-pagination { display: flex; align-items: center; justify-content: center; gap: 4px; margin-top: 48px; }
+.page-btn { width: 36px; height: 36px; background: transparent; border: 1px solid var(--border-dim); font-family: var(--font-head); font-size: 11px; color: var(--text-dim); cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
+.page-btn:hover, .page-btn.active { background: var(--red); border-color: var(--red); color: #fff; }
+.page-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; }
+
+.mobile-filter-btn { display: none; font-family: var(--font-head); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--white); background: transparent; border: 1px solid var(--border); padding: 9px 18px; cursor: pointer; gap: 8px; align-items: center; transition: border-color 0.3s; }
+.mobile-filter-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+.mobile-filter-btn:hover { border-color: var(--red-light); }
+
+.filter-drawer { position: fixed; inset: 0; z-index: 999; pointer-events: none; }
+.filter-drawer-bg { position: absolute; inset: 0; background: rgba(0,0,0,0.7); opacity: 0; transition: opacity 0.3s; }
+.filter-drawer-panel { position: absolute; top: 0; left: 0; width: 280px; height: 100%; background: var(--dark); border-right: 1px solid var(--border); padding: 28px 24px; transform: translateX(-100%); transition: transform 0.35s ease; overflow-y: auto; }
+.filter-drawer.open { pointer-events: all; }
+.filter-drawer.open .filter-drawer-bg { opacity: 1; }
+.filter-drawer.open .filter-drawer-panel { transform: translateX(0); }
+.drawer-close { position: absolute; top: 16px; right: 16px; background: none; border: none; color: var(--text-dim); font-size: 20px; cursor: pointer; transition: color 0.3s; }
+.drawer-close:hover { color: var(--white); }
+
+.cart-toast { position: fixed; bottom: 30px; right: 30px; background: var(--dark); border: 1px solid var(--red); color: var(--white); font-family: var(--font-head); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 14px 22px; z-index: 9998; opacity: 0; transform: translateY(20px); transition: opacity 0.3s, transform 0.3s; pointer-events: none; }
+.cart-toast.show { opacity: 1; transform: translateY(0); }
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1100px) { .prod-grid { grid-template-columns: repeat(2, 1fr); } .shop-wrapper { grid-template-columns: 200px 1fr; gap: 24px; } }
+@media (max-width: 900px) { .shop-wrapper { grid-template-columns: 1fr; } .filter-sidebar { display: none; } .mobile-filter-btn { display: flex; } .prod-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .gothic-carousel .carousel-inner { height: 60vh; min-height: 360px; } .slide-content { padding: 0 24px; } .prod-grid { grid-template-columns: repeat(2, 1fr); } .shop-wrapper { padding: 24px 12px 60px; } .products-toolbar { flex-direction: column; align-items: flex-start; } }
+@media (max-width: 400px) { .prod-grid { grid-template-columns: 1fr; } }
+
+</style>
+</head>
+<body>
+<header>
+  <!-- ════ TOP BAR ════ -->
+  <div class="top-bar">
+    <span class="welcome-text">Welcome To Our Store</span>
+    <div class="top-actions">
+      <a href="#">My Account</a>
+      <a href="#">Wishlist</a>
+      <a href="#">Login</a>
+    </div>
+  </div>
+
+  <!-- ════ NAVBAR ════ -->
+  <nav class="navbar navbar-expand-lg" id="mainNavbar">
+    <div class="container-fluid px-4">
+
+      <a href="#" class="text-decoration-none">
+        <div class="logo-placeholder">Your Logo</div>
+      </a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navMenu">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="gothic.html">Gothic</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link a" href="#">Classic</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact us</a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="nav-right-icons">
+        <!-- sirf search icon wali line replace karo -->
+<a href="#" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" style="position:relative;">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge">2</span>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+</header> 
+<!-- HERO CAROUSEL -->
+<section class="gothic-hero">
+  <div id="gothicCarousel" class="carousel slide gothic-carousel" data-bs-ride="carousel" data-bs-interval="5500">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#gothicCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#gothicCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#gothicCarousel" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="carousel-slide slide-a">
+          <img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=1400&q=80" alt="Victorian Gothic" class="slide-img"/>
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <p class="slide-tag">New Arrival — 2025</p>
+            <h1 class="slide-title">Victorian<br>Gothic</h1>
+            <p class="slide-desc">Elegance born from darkness. Corsets, velvet gowns, and lace — timeless silhouettes for the modern dark soul.</p>
+            <a href="#products" class="slide-cta">Discover Now <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="carousel-slide slide-b">
+          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1400&q=80" alt="Dark Romantic" class="slide-img"/>
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <p class="slide-tag">Featured Collection</p>
+            <h1 class="slide-title">Dark<br>Romantics</h1>
+            <p class="slide-desc">Where brooding shadows meet delicate beauty. Flowing silhouettes drenched in crimson and midnight black.</p>
+            <a href="#products" class="slide-cta">Shop Now <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="carousel-slide slide-c">
+          <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1400&q=80" alt="Gothic Streetwear" class="slide-img"/>
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <p class="slide-tag">Limited Edition</p>
+            <h1 class="slide-title">Gothic<br>Streetwear</h1>
+            <p class="slide-desc">Modern edge meets dark heritage. Leather, chains, and structured silhouettes for the urban night walker.</p>
+            <a href="#products" class="slide-cta">Explore Collection <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#gothicCarousel" data-bs-slide="prev">
+      <div class="ctrl-btn"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#gothicCarousel" data-bs-slide="next">
+      <div class="ctrl-btn"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </button>
+  </div>
+</section>
+
+<!-- COLLECTION TABS -->
+<div class="collection-bar">
+  <div class="container-fluid px-4">
+    <div class="collection-tabs">
+      <button class="col-tab active" data-filter="all">All Gothic <span class="col-tab-count">(24)</span></button>
+      <button class="col-tab" data-filter="victorian">Victorian <span class="col-tab-count">(8)</span></button>
+      <button class="col-tab" data-filter="romantic">Dark Romantic <span class="col-tab-count">(6)</span></button>
+      <button class="col-tab" data-filter="streetwear">Streetwear <span class="col-tab-count">(5)</span></button>
+      <button class="col-tab" data-filter="corsets">Corsets <span class="col-tab-count">(5)</span></button>
+      <button class="col-tab" data-filter="sale">On Sale <span class="col-tab-count">(4)</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- SHOP -->
+<div id="products" class="shop-wrapper">
+
+  <!-- FILTER SIDEBAR -->
+  <aside class="filter-sidebar">
+
+    <div class="filter-group">
+      <div class="filter-heading open" onclick="toggleFilter(this)">
+        Categories
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="filter-options">
+        <label class="filter-opt"><input type="checkbox" data-ftype="cloth" value="all" checked onchange="applyFilters()"/> All Clothing <span class="opt-count">24</span></label>
+        <label class="filter-opt"><input type="checkbox" data-ftype="cloth" value="dresses" onchange="applyFilters()"/> Dresses <span class="opt-count">8</span></label>
+        <label class="filter-opt"><input type="checkbox" data-ftype="cloth" value="coats" onchange="applyFilters()"/> Coats &amp; Cloaks <span class="opt-count">5</span></label>
+        <label class="filter-opt"><input type="checkbox" data-ftype="cloth" value="corsets" onchange="applyFilters()"/> Corsets &amp; Tops <span class="opt-count">6</span></label>
+        <label class="filter-opt"><input type="checkbox" data-ftype="cloth" value="trousers" onchange="applyFilters()"/> Trousers &amp; Skirts <span class="opt-count">5</span></label>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-heading open" onclick="toggleFilter(this)">
+        Style
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="filter-options">
+        <label class="filter-opt"><input type="checkbox" data-ftype="style" value="victorian" onchange="applyFilters()"/> Victorian Gothic</label>
+        <label class="filter-opt"><input type="checkbox" data-ftype="style" value="romantic" onchange="applyFilters()"/> Dark Romantic</label>
+        <label class="filter-opt"><input type="checkbox" data-ftype="style" value="streetwear" onchange="applyFilters()"/> Gothic Streetwear</label>
+        <label class="filter-opt"><input type="checkbox" data-ftype="style" value="corsets" onchange="applyFilters()"/> Cyber Goth</label>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-heading open" onclick="toggleFilter(this)">
+        Size
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="size-row" style="margin-bottom:0;">
+        <div class="size-chip" data-size="XS" onclick="toggleSizeChip(this)">XS</div>
+        <div class="size-chip" data-size="S"  onclick="toggleSizeChip(this)">S</div>
+        <div class="size-chip" data-size="M"  onclick="toggleSizeChip(this)">M</div>
+        <div class="size-chip" data-size="L"  onclick="toggleSizeChip(this)">L</div>
+        <div class="size-chip" data-size="XL" onclick="toggleSizeChip(this)">XL</div>
+        <div class="size-chip" data-size="XXL" onclick="toggleSizeChip(this)">XXL</div>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-heading open" onclick="toggleFilter(this)">
+        Price Range
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="price-range">
+        <input type="number" class="price-input" id="priceMin" value="0" oninput="applyFilters()"/>
+        <span class="price-sep">—</span>
+        <input type="number" class="price-input" id="priceMax" value="500" oninput="applyFilters()"/>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- PRODUCTS AREA -->
+  <div class="products-area">
+    <div class="products-toolbar">
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <button class="mobile-filter-btn" onclick="openFilterDrawer()">
+          <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+          Filters
+        </button>
+        <p class="toolbar-left">Showing <span id="showRange">1–8</span> of <span id="totalCount">24</span> products</p>
+      </div>
+      <div class="toolbar-right">
+        <select class="sort-select" onchange="handleSort(this.value)">
+          <option value="featured">Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="new">New Arrivals</option>
+          <option value="best">Best Sellers</option>
+        </select>
+        <div class="view-btns">
+          <button class="view-btn active" id="gridViewBtn" onclick="setView('grid')">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </button>
+          <button class="view-btn" id="listViewBtn" onclick="setView('list')">
+            <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-grid" id="prodGrid"></div>
+
+    <div class="gothic-pagination">
+      <button class="page-btn" id="prevBtn" onclick="changePage(-1)">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="page-btn active" onclick="goToPage(1)" id="pg1">1</button>
+      <button class="page-btn" onclick="goToPage(2)" id="pg2">2</button>
+      <button class="page-btn" onclick="goToPage(3)" id="pg3">3</button>
+      <button class="page-btn" id="nextBtn" onclick="changePage(1)">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Filter Drawer -->
+<div class="filter-drawer" id="filterDrawer">
+  <div class="filter-drawer-bg" onclick="closeFilterDrawer()"></div>
+  <div class="filter-drawer-panel">
+    <button class="drawer-close" onclick="closeFilterDrawer()">&#x2715;</button>
+    <h3 style="font-family:var(--font-head);font-size:11px;letter-spacing:3px;color:var(--white);text-transform:uppercase;margin-bottom:24px;">Filters</h3>
+    <div class="filter-group">
+      <div class="filter-heading open">Categories</div>
+      <div class="filter-options">
+        <label class="filter-opt"><input type="checkbox" data-ftype="cloth" value="all" checked onchange="applyFilters()"/> All Clothing</label>
+        <label class="filter-opt"><input type="checkbox" data-ftype="cloth" value="dresses" onchange="applyFilters()"/> Dresses</label>
+        <label class="filter-opt"><input type="checkbox" data-ftype="cloth" value="coats" onchange="applyFilters()"/> Coats &amp; Cloaks</label>
+        <label class="filter-opt"><input type="checkbox" data-ftype="cloth" value="corsets" onchange="applyFilters()"/> Corsets &amp; Tops</label>
+        <label class="filter-opt"><input type="checkbox" data-ftype="cloth" value="trousers" onchange="applyFilters()"/> Trousers &amp; Skirts</label>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-heading open">Size</div>
+      <div class="size-row">
+        <div class="size-chip" data-size="XS" onclick="toggleSizeChip(this)">XS</div>
+        <div class="size-chip" data-size="S"  onclick="toggleSizeChip(this)">S</div>
+        <div class="size-chip" data-size="M"  onclick="toggleSizeChip(this)">M</div>
+        <div class="size-chip" data-size="L"  onclick="toggleSizeChip(this)">L</div>
+        <div class="size-chip" data-size="XL" onclick="toggleSizeChip(this)">XL</div>
+        <div class="size-chip" data-size="XXL" onclick="toggleSizeChip(this)">XXL</div>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-heading open">Price Range</div>
+      <div class="price-range">
+        <input type="number" class="price-input" value="0" oninput="applyFilters()"/>
+        <span class="price-sep">—</span>
+        <input type="number" class="price-input" value="500" oninput="applyFilters()"/>
+      </div>
+    </div>
+    <button class="quick-add-btn" style="margin-top:16px;" onclick="closeFilterDrawer()">Apply Filters</button>
+  </div>
+</div>
+
+<div class="cart-toast" id="cartToast"></div>
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- Contact Us -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Contact Us</h6>
+          <ul class="footer-contact-list">
+            <li>
+              <div class="footer-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <span>NORAURE London Oxford Street<br>012 United Kingdom.</span>
+            </li>
+            <li>
+              <div class="footer-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </div>
+              <span>emailnoraure@gmail.com<br>emailsupport@gmail.com</span>
+            </li>
+            <li>
+              <div class="footer-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              </div>
+              <span>(+92) 3456 7890<br>(+92) 1234 5678</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Information -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Information</h6>
+          <ul class="footer-links">
+            <li><a href="#">My account</a></li>
+            <li><a href="#">Order history</a></li>
+            <li><a href="#">Wish List</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Site Map</a></li>
+          </ul>
+        </div>
+
+        <!-- Our Offers -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Our Offers</h6>
+          <ul class="footer-links">
+            <li><a href="#">New collection</a></li>
+            <li><a href="#">Best sellers</a></li>
+            <li><a href="#">Manufacturers</a></li>
+            <li><a href="#">New products</a></li>
+            <li><a href="#">Suppliers</a></li>
+            <li><a href="#">Delivery &amp; returns</a></li>
+          </ul>
+        </div>
+
+        <!-- Our Policy -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Our Policy</h6>
+          <ul class="footer-links">
+            <li><a href="#">Help &amp; Contact</a></li>
+            <li><a href="#">Shipping &amp; taxes</a></li>
+            <li><a href="#">Returns policy</a></li>
+            <li><a href="#">Careens</a></li>
+            <li><a href="#">Affiliates</a></li>
+            <li><a href="#">Legal Notice</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter + Social -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Get Newsletters</h6>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="Email" class="newsletter-input"/>
+            <button class="newsletter-btn">Subscribe</button>
+          </div>
+
+          <h6 class="footer-heading mt-4">Connect Us</h6>
+          <div class="footer-socials">
+            <a href="#" class="social-btn social-fb" title="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-btn social-tw" title="Twitter">
+              <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" class="social-btn social-li" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-btn social-rss" title="RSS">
+              <svg viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+            </a>
+            <a href="#" class="social-btn social-web" title="Website">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p class="footer-copy">Copyright &copy; <a href="#">HasThemes</a>. All Rights Reserved</p>
+        <div class="footer-payments">
+          <span class="payment-badge">PayPal</span>
+          <span class="payment-badge">Discover</span>
+          <span class="payment-badge">Cirrus</span>
+          <span class="payment-badge">VISA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+const allProducts = [
+  { id:1,  name:'Midnight Velvet Gown',       category:'victorian',  cat_label:'Victorian Gothic',  cloth:'dresses',  price:189, oldPrice:null, badge:'new',     img:'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600&q=80',  stars:4, sizes:['XS','S','M','L','XL'] },
+  { id:2,  name:'Crimson Lace Dress',          category:'romantic',   cat_label:'Dark Romantic',     cloth:'dresses',  price:154, oldPrice:220,  badge:'sale',    img:'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80',  stars:5, sizes:['XS','S','M','L'] },
+  { id:3,  name:'Shadow Leather Jacket',       category:'streetwear', cat_label:'Gothic Streetwear', cloth:'coats',    price:295, oldPrice:null, badge:'limited', img:'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80',  stars:3, sizes:['S','M','L','XL'] },
+  { id:4,  name:'Obsidian Brocade Corset',     category:'corsets',    cat_label:'Corsets & Tops',    cloth:'corsets',  price:139, oldPrice:null, badge:null,      img:'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=600&q=80', stars:5, sizes:['XS','S','M','L'] },
+  { id:5,  name:'Phantom Wool Cloak',          category:'victorian',  cat_label:'Coats & Cloaks',    cloth:'coats',    price:245, oldPrice:null, badge:'new',     img:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80',  stars:4, sizes:['S','M','L','XL'] },
+  { id:6,  name:'Noir Velvet Wrap Dress',      category:'romantic',   cat_label:'Dark Romantic',     cloth:'dresses',  price:122, oldPrice:175,  badge:'sale',    img:'https://images.unsplash.com/photo-1566479179817-e4bfd41f62c8?w=600&q=80',  stars:4, sizes:['XS','S','M','L'] },
+  { id:7,  name:'Chain Detail Cargo Trousers', category:'streetwear', cat_label:'Trousers & Skirts', cloth:'trousers', price:98,  oldPrice:null, badge:null,      img:'https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=600&q=80',  stars:3, sizes:['S','M','L','XL','XXL'] },
+  { id:8,  name:'Victorian Lace Poet Blouse',  category:'victorian',  cat_label:'Corsets & Tops',    cloth:'corsets',  price:79,  oldPrice:null, badge:'new',     img:'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80',  stars:5, sizes:['XS','S','M','L'] },
+  { id:9,  name:'Gothic Widow Dress',          category:'romantic',   cat_label:'Dark Romantic',     cloth:'dresses',  price:210, oldPrice:280,  badge:'sale',    img:'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80',  stars:4, sizes:['XS','S','M','L','XL'] },
+  { id:10, name:'Raven Feather Coat',          category:'victorian',  cat_label:'Coats & Cloaks',    cloth:'coats',    price:320, oldPrice:null, badge:'limited', img:'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80',  stars:5, sizes:['S','M','L','XL'] },
+  { id:11, name:'Darkwave Mesh Top',           category:'streetwear', cat_label:'Corsets & Tops',    cloth:'corsets',  price:65,  oldPrice:null, badge:'new',     img:'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&q=80',  stars:4, sizes:['XS','S','M','L'] },
+  { id:12, name:'Bloodmoon Silk Corset',       category:'corsets',    cat_label:'Corsets & Tops',    cloth:'corsets',  price:175, oldPrice:null, badge:null,      img:'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80',  stars:5, sizes:['XS','S','M','L'] },
+  { id:13, name:'Mourning Veil Skirt',         category:'romantic',   cat_label:'Trousers & Skirts', cloth:'trousers', price:88,  oldPrice:120,  badge:'sale',    img:'https://images.unsplash.com/photo-1617922001439-4a2e6562f328?w=600&q=80',  stars:3, sizes:['XS','S','M','L','XL'] },
+  { id:14, name:'Shadowmancer Trench Coat',    category:'victorian',  cat_label:'Coats & Cloaks',    cloth:'coats',    price:395, oldPrice:null, badge:'limited', img:'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=600&q=80',  stars:5, sizes:['S','M','L','XL'] },
+  { id:15, name:'Torn Lace Maxi Skirt',        category:'romantic',   cat_label:'Trousers & Skirts', cloth:'trousers', price:115, oldPrice:null, badge:'new',     img:'https://images.unsplash.com/photo-1594938298603-c8148c4b5f06?w=600&q=80',  stars:4, sizes:['XS','S','M','L'] },
+  { id:16, name:'Hex Print Combat Trousers',   category:'streetwear', cat_label:'Trousers & Skirts', cloth:'trousers', price:128, oldPrice:null, badge:null,      img:'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=600&q=80',  stars:4, sizes:['S','M','L','XL','XXL'] },
+  { id:17, name:'Midnight Lace Corset',        category:'corsets',    cat_label:'Corsets & Tops',    cloth:'corsets',  price:145, oldPrice:195,  badge:'sale',    img:'https://images.unsplash.com/photo-1533659124865-d6072dc035e1?w=600&q=80',  stars:4, sizes:['XS','S','M','L'] },
+  { id:18, name:'Crypt Keeper Cloak',          category:'victorian',  cat_label:'Coats & Cloaks',    cloth:'coats',    price:265, oldPrice:null, badge:'new',     img:'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=600&q=80',  stars:5, sizes:['S','M','L','XL'] },
+  { id:19, name:'Absinthe Velvet Dress',       category:'romantic',   cat_label:'Dark Romantic',     cloth:'dresses',  price:198, oldPrice:null, badge:'limited', img:'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=600&q=80',  stars:4, sizes:['XS','S','M','L','XL'] },
+  { id:20, name:'Spiderweb Knit Sweater',      category:'streetwear', cat_label:'Gothic Streetwear', cloth:'corsets',  price:89,  oldPrice:null, badge:'new',     img:'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=600&q=80',  stars:3, sizes:['XS','S','M','L','XL'] },
+  { id:21, name:'Bone Lace Poet Blouse',       category:'victorian',  cat_label:'Corsets & Tops',    cloth:'corsets',  price:95,  oldPrice:null, badge:null,      img:'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&q=80',  stars:4, sizes:['XS','S','M','L'] },
+  { id:22, name:'Dark Sigil Cargo Trousers',   category:'streetwear', cat_label:'Trousers & Skirts', cloth:'trousers', price:112, oldPrice:150,  badge:'sale',    img:'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80',  stars:5, sizes:['S','M','L','XL','XXL'] },
+  { id:23, name:'Obsidian Satin Corset',       category:'corsets',    cat_label:'Corsets & Tops',    cloth:'corsets',  price:160, oldPrice:null, badge:'limited', img:'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=80',  stars:5, sizes:['XS','S','M','L'] },
+  { id:24, name:'Gothic Floral Ball Gown',     category:'romantic',   cat_label:'Dark Romantic',     cloth:'dresses',  price:340, oldPrice:null, badge:'new',     img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',  stars:5, sizes:['XS','S','M','L','XL'] },
+];
+
+const PER_PAGE = 8;
+let currentPage   = 1;
+let currentTab    = 'all';
+let currentSort   = 'featured';
+let selectedSizes = [];
+
+function getFiltered() {
+  // Cloth checkboxes
+  const clothChecked = [...document.querySelectorAll('input[data-ftype="cloth"]:checked')].map(c => c.value);
+  const allCloth = clothChecked.includes('all');
+
+  // Style checkboxes
+  const styleChecked = [...document.querySelectorAll('input[data-ftype="style"]:checked')].map(c => c.value);
+
+  // Price
+  const minP = parseFloat(document.getElementById('priceMin').value) || 0;
+  const maxP = parseFloat(document.getElementById('priceMax').value) || 99999;
+
+  let data = [...allProducts];
+
+  // 1. Top tab
+  if (currentTab === 'sale') {
+    data = data.filter(p => p.oldPrice);
+  } else if (currentTab !== 'all') {
+    data = data.filter(p => p.category === currentTab);
+  }
+
+  // 2. Cloth category checkboxes (only if not "all")
+  if (!allCloth && clothChecked.length > 0) {
+    data = data.filter(p => clothChecked.includes(p.cloth));
+  }
+
+  // 3. Style checkboxes (only if any checked)
+  if (styleChecked.length > 0) {
+    data = data.filter(p => styleChecked.includes(p.category));
+  }
+
+  // 4. Size filter
+  if (selectedSizes.length > 0) {
+    data = data.filter(p => selectedSizes.some(s => p.sizes.includes(s)));
+  }
+
+  // 5. Price
+  data = data.filter(p => p.price >= minP && p.price <= maxP);
+
+  // 6. Sort
+  if (currentSort === 'price-asc') data.sort((a,b) => a.price - b.price);
+  else if (currentSort === 'price-desc') data.sort((a,b) => b.price - a.price);
+  else if (currentSort === 'new') data = [...data.filter(p => p.badge==='new'), ...data.filter(p => p.badge!=='new')];
+  else if (currentSort === 'best') data.sort((a,b) => b.stars - a.stars);
+
+  return data;
+}
+
+function starsHtml(n) {
+  let s = '';
+  for (let i=1;i<=5;i++) s += `<svg class="star${i>n?' empty':''}" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
+  return s;
+}
+
+function badgeHtml(b) {
+  if (!b) return '';
+  const m={new:'badge-new',sale:'badge-sale',limited:'badge-limited'};
+  const l={new:'New',sale:'Sale',limited:'Limited'};
+  return `<span class="gc-badge ${m[b]}">${l[b]}</span>`;
+}
+
+function priceHtml(p) {
+  if (p.oldPrice) {
+    const pct = Math.round((1-p.price/p.oldPrice)*100);
+    return `<span class="price-old">$${p.oldPrice}.00</span><span class="price-now">$${p.price}.00</span><span class="price-save">${pct}% off</span>`;
+  }
+  return `<span class="price-now">$${p.price}.00</span>`;
+}
+
+function cardHtml(p) {
+  const sz = p.sizes.map(s=>`<span class="size-chip">${s}</span>`).join('');
+  return `
+    <div class="gothic-card" data-category="${p.category}">
+      <div class="gc-img-wrap">
+        <img src="${p.img}" alt="${p.name}" loading="lazy"/>
+        ${badgeHtml(p.badge)}
+        <button class="gc-wish" onclick="toggleWish(this,event)">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <div class="gc-quick">
+          <div class="size-row">${sz}</div>
+          <button class="quick-add-btn" onclick="addToCart(event,'${p.name.replace(/'/g,"\\'")}')">Quick Add to Cart</button>
+        </div>
+      </div>
+      <div class="gc-info">
+        <p class="gc-category">${p.cat_label}</p>
+        <h3 class="gc-name">${p.name}</h3>
+        <div class="gc-price">${priceHtml(p)}</div>
+        <div class="gc-stars">${starsHtml(p.stars)}</div>
+      </div>
+    </div>`;
+}
+
+function renderGrid() {
+  const filtered = getFiltered();
+  const total = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
+  if (currentPage > totalPages) currentPage = 1;
+
+  const start = (currentPage-1)*PER_PAGE;
+  const items = filtered.slice(start, start+PER_PAGE);
+
+  let html = '';
+  items.forEach((p,i) => {
+    html += cardHtml(p);
+    if (i===3 && currentPage===1 && currentTab==='all') {
+      html += `<div class="featured-banner"><div class="fb-text"><p class="fb-label">Exclusive Drop</p><h3>The Raven's Cloak Collection</h3><p>Hand-finished cloaks with embroidered ravens — only 30 pieces worldwide.</p></div><a href="#" class="fb-btn">View Collection</a></div>`;
+    }
+  });
+
+  if (total===0) {
+    html = `<div style="grid-column:1/-1;padding:60px;text-align:center;font-family:var(--font-head);font-size:11px;letter-spacing:3px;color:var(--text-dim);">No products match your filters</div>`;
+  }
+
+  document.getElementById('prodGrid').innerHTML = html;
+  document.getElementById('showRange').textContent = total===0 ? '0' : `${start+1}–${Math.min(start+PER_PAGE,total)}`;
+  document.getElementById('totalCount').textContent = total;
+
+  for (let i=1;i<=3;i++) {
+    const btn = document.getElementById('pg'+i);
+    if (btn) { btn.classList.toggle('active', i===currentPage); btn.style.display = i<=totalPages?'':'none'; }
+  }
+
+  // size chips inside cards (quick add only — these select size for add to cart)
+  document.querySelectorAll('.gc-quick .size-chip').forEach(chip => {
+    chip.addEventListener('click', function(e) {
+      e.stopPropagation();
+      this.closest('.size-row').querySelectorAll('.size-chip').forEach(c=>c.classList.remove('selected'));
+      this.classList.add('selected');
+    });
+  });
+}
+
+function applyFilters() { currentPage=1; renderGrid(); }
+
+function goToPage(n) {
+  currentPage=n; renderGrid();
+  document.getElementById('products').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function changePage(dir) {
+  const tp = Math.ceil(getFiltered().length/PER_PAGE);
+  const np = currentPage+dir;
+  if (np>=1 && np<=tp) goToPage(np);
+}
+
+function handleSort(val) { currentSort=val; currentPage=1; renderGrid(); }
+
+function toggleSizeChip(chip) {
+  const sz = chip.dataset.size;
+  chip.classList.toggle('selected');
+  selectedSizes = chip.classList.contains('selected')
+    ? [...selectedSizes, sz]
+    : selectedSizes.filter(s=>s!==sz);
+  applyFilters();
+}
+
+document.querySelectorAll('.col-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.col-tab').forEach(t=>t.classList.remove('active'));
+    this.classList.add('active');
+    currentTab = this.dataset.filter;
+    currentPage = 1;
+    renderGrid();
+  });
+});
+
+function setView(type) {
+  const grid=document.getElementById('prodGrid');
+  const g=document.getElementById('gridViewBtn'), l=document.getElementById('listViewBtn');
+  if (type==='list') { grid.classList.add('list-view'); l.classList.add('active'); g.classList.remove('active'); }
+  else { grid.classList.remove('list-view'); g.classList.add('active'); l.classList.remove('active'); }
+}
+
+function toggleFilter(el) {
+  el.classList.toggle('open');
+  const opts=el.nextElementSibling;
+  if (opts) opts.style.display=opts.style.display==='none'?'':'none';
+}
+
+function toggleWish(btn,e) { e.stopPropagation(); btn.classList.toggle('wished'); }
+
+let toastTimer;
+function addToCart(e, name) {
+  e.stopPropagation();
+  const toast=document.getElementById('cartToast');
+  toast.textContent=`"${name}" added to cart`;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>toast.classList.remove('show'), 2500);
+}
+
+function openFilterDrawer()  { document.getElementById('filterDrawer').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeFilterDrawer() { document.getElementById('filterDrawer').classList.remove('open'); document.body.style.overflow=''; }
+
+renderGrid();
+</script>
+</body>
+</html>

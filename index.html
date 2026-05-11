@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navbar + Hero</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <!-- ════ TOP BAR ════ -->
+  <div class="top-bar">
+    <span class="welcome-text">Welcome To Our Store</span>
+    <div class="top-actions">
+      <a href="#">My Account</a>
+      <a href="#">Wishlist</a>
+      <a href="#">Login</a>
+    </div>
+  </div>
+
+  <!-- ════ NAVBAR ════ -->
+  <nav class="navbar navbar-expand-lg" id="mainNavbar">
+    <div class="container-fluid px-4">
+
+      <a href="#" class="text-decoration-none">
+        <div class="logo-placeholder">Your Logo</div>
+      </a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navMenu">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="gothic.html">Gothic</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link a" href="#">Classic</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact us</a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="nav-right-icons">
+        <!-- sirf search icon wali line replace karo -->
+<a href="#" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" style="position:relative;">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge">2</span>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+</header> 
+<!-- Search Modal -->
+<div class="search-modal" id="searchModal">
+  <div class="search-modal-inner">
+    <form class="search-form" id="searchForm">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="Search products..."
+        autocomplete="off"
+      />
+      <button type="submit" class="search-submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+    <button class="search-close" id="searchClose">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+</div>
+<main>
+  <!-- ════ HERO CAROUSEL ════ -->
+  <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="5000">
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active slide-1">
+        <div class="slide-bg"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <p class="slide-tag">new collection</p>
+          <h1 class="slide-heading">Women's<br>Fashion</h1>
+          <p class="slide-sub">Save Up To 40% Off</p>
+          <a href="#" class="slide-btn">Shop Now</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item slide-2">
+        <div class="slide-bg"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <p class="slide-tag">exclusive deals</p>
+          <h1 class="slide-heading">Women's<br>Collection</h1>
+          <p class="slide-sub">New Arrivals This Season</p>
+          <a href="#" class="slide-btn">Explore Now</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item slide-3">
+        <div class="slide-bg"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <p class="slide-tag">Summer fashion for season</p>
+          <h1 class="slide-heading">Fine<br>Jewelry</h1>
+          <p class="slide-sub">Timeless Pieces For Every Occasion</p>
+          <a href="#" class="slide-btn">Discover Now</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <div class="custom-ctrl"><i class="fa-solid fa-chevron-left"></i></div>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <div class="custom-ctrl"><i class="fa-solid fa-chevron-right"></i></div>
+    </button>
+
+  </div>
+  <!-- ════════════════════════════
+     FASHION PROMO SECTION
+════════════════════════════ -->
+<section class="fashion-promos py-5">
+  <div class="container-fluid px-lg-5">
+
+    <div class="row g-4 align-items-stretch">
+
+      <!-- LEFT COLUMN -->
+      <div class="col-lg-4">
+        <div class="promo-card large-card">
+
+          <div class="promo-image">
+            <img src="img-1.webp" alt="">
+          </div>
+
+          <div class="promo-content">
+            <p class="promo-tag">NEW DESIGN</p>
+            <h2 class="promo-title">
+              SEND HER YOUR LOVE
+            </h2>
+
+            <a href="#" class="promo-btn">
+              GET IT NOW
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CENTER COLUMN -->
+      <div class="col-lg-4">
+
+        <div class="promo-card text-card mb-4">
+
+          <div class="promo-content center-content">
+            <p class="promo-tag">NEW DESIGN</p>
+
+            <h2 class="promo-title">
+              SEND HER YOUR LOVE
+            </h2>
+
+            <a href="#" class="promo-btn">
+              GET IT NOW
+            </a>
+          </div>
+
+        </div>
+
+        <div class="promo-card image-card">
+
+          <div class="promo-image full-image">
+            <img src="img-2.webp" alt="">
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="col-lg-4">
+        <div class="promo-card tall-card">
+
+          <div class="promo-image">
+            <img src="img-3.webp" alt="">
+          </div>
+
+          <div class="promo-overlay-content">
+            <p class="promo-tag">MEN’S FASHION</p>
+
+            <h2 class="promo-title">
+              MID SEASON SALE
+            </h2>
+
+            <a href="#" class="promo-btn">
+              VIEW COLLECTION
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Best Products Section -->
+<section class="best-products-section">
+  <div class="container-fluid px-4 px-md-5">
+
+    <!-- Heading -->
+    <div class="text-center">
+      <h2 class="section-heading">The Our Best Products</h2>
+      <div class="section-divider"><div class="dot"></div></div>
+    </div>
+
+    <!-- Grid -->
+    <div class="products-grid">
+
+      <!-- LEFT COLUMN -->
+      <div class="side-col">
+
+        <div class="product-card">
+          <div class="card-img-wrap">
+            <img src="bag.webp" alt="Teal Clutch Bag"/>
+            <div class="sale-badge">Sale!</div>
+            <div class="card-hover-overlay">
+              <div class="overlay-title">Teal Clutch Bag</div>
+              <div class="overlay-price"><s>$120.00</s> <span>$79.00</span></div>
+              <div class="overlay-actions">
+                <button class="action-btn" title="Quick View">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                </button>
+                <button class="action-btn" title="Wishlist">
+                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </button>
+                <button class="action-btn" title="Compare">
+                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                </button>
+              </div>
+              <button class="add-to-cart-btn">Add To Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrap">
+            <img src="product-2.jpg" alt="Gold Bracelet"/>
+            <div class="card-hover-overlay">
+              <div class="overlay-title">Gold Bracelet</div>
+              <div class="overlay-price"><span>$59.00</span></div>
+              <div class="overlay-actions">
+                <button class="action-btn" title="Quick View">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                </button>
+                <button class="action-btn" title="Wishlist">
+                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </button>
+                <button class="action-btn" title="Compare">
+                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                </button>
+              </div>
+              <button class="add-to-cart-btn">Add To Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /LEFT -->
+
+      <!-- CENTER COLUMN -->
+      <div class="center-col">
+        <div class="product-card center-card">
+          <div class="card-img-wrap">
+            <img src="product-3.jpg" alt="Vintage Lambskin Shoe"/>
+            <div class="sale-badge">Sale!</div>
+            <div class="card-hover-overlay">
+              <div class="overlay-title">Vintage Lambskin Shoe</div>
+              <div class="overlay-price"><s>$299.00</s> <span>$199.00</span></div>
+              <div class="overlay-actions">
+                <button class="action-btn" title="Quick View">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                </button>
+                <button class="action-btn" title="Wishlist">
+                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </button>
+                <button class="action-btn" title="Compare">
+                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                </button>
+              </div>
+              <button class="add-to-cart-btn">Add To Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><!-- /CENTER -->
+
+      <!-- RIGHT COLUMN -->
+      <div class="side-col">
+
+        <div class="product-card">
+          <div class="card-img-wrap">
+            <img src="product-4.jpg" alt="Brown Tote Bag"/>
+            <div class="card-hover-overlay">
+              <div class="overlay-title">Brown Tote Bag</div>
+              <div class="overlay-price"><span>$149.00</span></div>
+              <div class="overlay-actions">
+                <button class="action-btn" title="Quick View">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                </button>
+                <button class="action-btn" title="Wishlist">
+                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </button>
+                <button class="action-btn" title="Compare">
+                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                </button>
+              </div>
+              <button class="add-to-cart-btn">Add To Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-wrap">
+            <img src="product-5.jpg" alt="Silver Ring"/>
+            <div class="card-hover-overlay">
+              <div class="overlay-title">Silver Ring</div>
+              <div class="overlay-price"><span>$39.00</span></div>
+              <div class="overlay-actions">
+                <button class="action-btn" title="Quick View">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                </button>
+                <button class="action-btn" title="Wishlist">
+                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </button>
+                <button class="action-btn" title="Compare">
+                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                </button>
+              </div>
+              <button class="add-to-cart-btn">Add To Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /RIGHT -->
+
+    </div><!-- /products-grid -->
+  </div>
+</section>
+<!-- View All Button Divider -->
+<div class="view-all-divider">
+  <a href="#" class="view-all-btn">View All</a>
+</div>
+
+<!-- Features Section -->
+<section class="features-section">
+  <div class="container">
+    <div class="row g-0">
+
+      <!-- Free Shipping -->
+      <div class="col-12 col-md-4">
+        <div class="feature-item">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+            </svg>
+          </div>
+          <h4 class="feature-title">Free Shipping</h4>
+          <div class="feature-line"></div>
+          <p class="feature-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, news do eiusmod tempor incididunt ut labore et dolore.</p>
+        </div>
+      </div>
+
+      <!-- 100% Money Back -->
+      <div class="col-12 col-md-4">
+        <div class="feature-item feature-item--active">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+            </svg>
+          </div>
+          <h4 class="feature-title">100% Money Back</h4>
+          <div class="feature-line"></div>
+          <p class="feature-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, news do eiusmod tempor incididunt ut labore et dolore.</p>
+        </div>
+      </div>
+
+      <!-- Online Support -->
+      <div class="col-12 col-md-4">
+        <div class="feature-item">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+            </svg>
+          </div>
+          <h4 class="feature-title">Online Support</h4>
+          <div class="feature-line"></div>
+          <p class="feature-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, news do eiusmod tempor incididunt ut labore et dolore.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Products Tabs Section -->
+<section class="products-tabs-section">
+  <div class="container">
+
+    <!-- Tab Headings -->
+    <div class="products-tabs-header">
+      <button class="tab-btn" data-tab="bestseller">Bestseller</button>
+      <span class="tab-sep">|</span>
+      <button class="tab-btn active" data-tab="new">New Products</button>
+      <span class="tab-sep">|</span>
+      <button class="tab-btn" data-tab="musthave">Must Have</button>
+    </div>
+
+    <!-- Divider -->
+    <div class="section-divider mb-4"><div class="dot"></div></div>
+
+    <!-- Carousel Wrapper -->
+    <div class="products-carousel-wrapper">
+
+      <!-- Prev Button -->
+      <button class="carousel-nav-btn prev-btn" id="productsPrev">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+
+      <!-- Cards Track -->
+      <div class="products-track-outer">
+        <div class="products-track" id="productsTrack">
+
+          <!-- Card 1 -->
+          <div class="prod-card">
+            <div class="prod-img-wrap">
+              <img src="product-1.jpg" alt="Vintage Lambskin Shoe"/>
+              <span class="prod-badge">Sale!</span>
+              <div class="prod-hover-actions">
+                <button class="prod-action-btn" title="Quick View">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="prod-info">
+              <h5 class="prod-name">Vintage Lambskin Shoe</h5>
+              <div class="prod-price"><span class="price-now">$170.00</span></div>
+              <div class="prod-bottom-actions">
+                <button class="prod-wish-btn" title="Wishlist">
+                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </button>
+                <button class="prod-cart-btn">Add To Cart</button>
+                <button class="prod-compare-btn" title="Compare">
+                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="prod-card">
+            <div class="prod-img-wrap">
+              <img src="product-2.jpg" alt="Leather Shoe"/>
+              <div class="prod-hover-actions">
+                <button class="prod-action-btn" title="Quick View">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="prod-info">
+              <h5 class="prod-name">Leather Shoe</h5>
+              <div class="prod-price"><span class="price-now">$220.00</span></div>
+              <div class="prod-bottom-actions">
+                <button class="prod-wish-btn" title="Wishlist">
+                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </button>
+                <button class="prod-cart-btn">Add To Cart</button>
+                <button class="prod-compare-btn" title="Compare">
+                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="prod-card">
+            <div class="prod-img-wrap">
+              <img src="product-3.jpg" alt="Vintage Shoulder Bag"/>
+              <span class="prod-badge">Sale!</span>
+              <div class="prod-hover-actions">
+                <button class="prod-action-btn" title="Quick View">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="prod-info">
+              <h5 class="prod-name">Vintage Shoulder Bag</h5>
+              <div class="prod-price"><span class="price-now">$99.00</span></div>
+              <div class="prod-bottom-actions">
+                <button class="prod-wish-btn" title="Wishlist">
+                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </button>
+                <button class="prod-cart-btn">Add To Cart</button>
+                <button class="prod-compare-btn" title="Compare">
+                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="prod-card">
+            <div class="prod-img-wrap">
+              <img src="product-4.jpg" alt="Leather Bag"/>
+              <div class="prod-hover-actions">
+                <button class="prod-action-btn" title="Quick View">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="prod-info">
+              <h5 class="prod-name">Leather Bag</h5>
+              <div class="prod-price">
+                <span class="price-old">$180.00</span>
+                <span class="price-now">$170.00</span>
+              </div>
+              <div class="prod-bottom-actions">
+                <button class="prod-wish-btn" title="Wishlist">
+                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </button>
+                <button class="prod-cart-btn">Add To Cart</button>
+                <button class="prod-compare-btn" title="Compare">
+                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="prod-card">
+            <div class="prod-img-wrap">
+              <img src="product-5.jpg" alt="Gold Necklace"/>
+              <div class="prod-hover-actions">
+                <button class="prod-action-btn" title="Quick View">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="prod-info">
+              <h5 class="prod-name">Gold Necklace</h5>
+              <div class="prod-price"><span class="price-now">$85.00</span></div>
+              <div class="prod-bottom-actions">
+                <button class="prod-wish-btn" title="Wishlist">
+                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </button>
+                <button class="prod-cart-btn">Add To Cart</button>
+                <button class="prod-compare-btn" title="Compare">
+                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="prod-card">
+            <div class="prod-img-wrap">
+              <img src="product-6.jpg" alt="Diamond Ring"/>
+              <span class="prod-badge">Sale!</span>
+              <div class="prod-hover-actions">
+                <button class="prod-action-btn" title="Quick View">
+                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="prod-info">
+              <h5 class="prod-name">Diamond Ring</h5>
+              <div class="prod-price">
+                <span class="price-old">$320.00</span>
+                <span class="price-now">$250.00</span>
+              </div>
+              <div class="prod-bottom-actions">
+                <button class="prod-wish-btn" title="Wishlist">
+                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </button>
+                <button class="prod-cart-btn">Add To Cart</button>
+                <button class="prod-compare-btn" title="Compare">
+                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /products-track -->
+      </div><!-- /products-track-outer -->
+
+      <!-- Next Button -->
+      <button class="carousel-nav-btn next-btn" id="productsNext">
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </button>
+
+    </div><!-- /carousel-wrapper -->
+  </div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- Contact Us -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Contact Us</h6>
+          <ul class="footer-contact-list">
+            <li>
+              <div class="footer-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <span>NORAURE London Oxford Street<br>012 United Kingdom.</span>
+            </li>
+            <li>
+              <div class="footer-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </div>
+              <span>emailnoraure@gmail.com<br>emailsupport@gmail.com</span>
+            </li>
+            <li>
+              <div class="footer-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              </div>
+              <span>(+92) 3456 7890<br>(+92) 1234 5678</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Information -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Information</h6>
+          <ul class="footer-links">
+            <li><a href="#">My account</a></li>
+            <li><a href="#">Order history</a></li>
+            <li><a href="#">Wish List</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Site Map</a></li>
+          </ul>
+        </div>
+
+        <!-- Our Offers -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Our Offers</h6>
+          <ul class="footer-links">
+            <li><a href="#">New collection</a></li>
+            <li><a href="#">Best sellers</a></li>
+            <li><a href="#">Manufacturers</a></li>
+            <li><a href="#">New products</a></li>
+            <li><a href="#">Suppliers</a></li>
+            <li><a href="#">Delivery &amp; returns</a></li>
+          </ul>
+        </div>
+
+        <!-- Our Policy -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Our Policy</h6>
+          <ul class="footer-links">
+            <li><a href="#">Help &amp; Contact</a></li>
+            <li><a href="#">Shipping &amp; taxes</a></li>
+            <li><a href="#">Returns policy</a></li>
+            <li><a href="#">Careens</a></li>
+            <li><a href="#">Affiliates</a></li>
+            <li><a href="#">Legal Notice</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter + Social -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Get Newsletters</h6>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="Email" class="newsletter-input"/>
+            <button class="newsletter-btn">Subscribe</button>
+          </div>
+
+          <h6 class="footer-heading mt-4">Connect Us</h6>
+          <div class="footer-socials">
+            <a href="#" class="social-btn social-fb" title="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-btn social-tw" title="Twitter">
+              <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" class="social-btn social-li" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-btn social-rss" title="RSS">
+              <svg viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+            </a>
+            <a href="#" class="social-btn social-web" title="Website">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p class="footer-copy">Copyright &copy; <a href="#">HasThemes</a>. All Rights Reserved</p>
+        <div class="footer-payments">
+          <span class="payment-badge">PayPal</span>
+          <span class="payment-badge">Discover</span>
+          <span class="payment-badge">Cirrus</span>
+          <span class="payment-badge">VISA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

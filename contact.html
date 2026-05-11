@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact Us</title>
+<link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+    /* ══════════════════════════════
+   CSS VARIABLES
+══════════════════════════════ */
+:root {
+  --black:      #0a0a0a;
+  --dark:       #111111;
+  --darker:     #0d0d0d;
+  --card:       #141414;
+  --border:     rgba(139,0,0,0.25);
+  --border-dim: rgba(255,255,255,0.06);
+  --red:        #8b0000;
+  --red-mid:    #a01010;
+  --red-light:  #c0392b;
+  --gold:       #9a7a4a;
+  --text:       #c8c0b8;
+  --text-dim:   #6e6660;
+  --white:      #f0ece8;
+  
+}
+
+/* ══════════════════════════════
+   BASE
+══════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  line-height: 1.6;
+}
+/* Agar background transparent ho aur image na ho toh navbar dark dikhao */
+.navbar.scrolled,
+.contact-page .navbar {
+  background: rgba(0,0,0,0.95) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.contact-hero {
+  position: relative;
+  text-align: center;
+  padding: 50px 20px 40px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px; height: 180px;
+  background: radial-gradient(ellipse, rgba(139,0,0,0.14) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 1px; height: 30px;
+  background: linear-gradient(to bottom, var(--red), transparent);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-head);
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--red-light);
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.2s forwards;
+}
+
+.hero-title {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 5vw, 38px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.35s forwards;
+  text-shadow: 0 0 40px rgba(139,0,0,0.35);
+}
+
+.hero-title span { color: var(--red-light); }
+
+.hero-sub {
+  font-size: clamp(12px, 1.5vw, 13px);
+  font-style: italic;
+  color: var(--text-dim);
+  max-width: 380px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.5s forwards;
+}
+
+.hero-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px auto 0;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.65s forwards;
+}
+
+.hero-ornament::before,
+.hero-ornament::after {
+  content: '';
+  width: 55px; height: 1px;
+  background: linear-gradient(to right, transparent, var(--red));
+}
+
+.hero-ornament::after {
+  background: linear-gradient(to left, transparent, var(--red));
+}
+
+.ornament-diamond {
+  width: 6px; height: 6px;
+  background: var(--red-light);
+  transform: rotate(45deg);
+}
+
+/* ══════════════════════════════
+   MAIN BODY
+══════════════════════════════ */
+.contact-body {
+  position: relative;
+  z-index: 1;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+/* ══════════════════════════════
+   TOP GRID
+══════════════════════════════ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+/* ── INFO PANEL ── */
+.contact-info-panel {
+  background: var(--card);
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info-panel::before {
+  content: '';
+  position: absolute;
+  top: -50px; left: -50px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(139,0,0,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.panel-label {
+  font-family: var(--font-head);
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--red-light);
+  margin-bottom: 10px;
+}
+
+.panel-title {
+  font-family: var(--font-head);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.panel-desc {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-dim);
+  margin-bottom: 30px;
+  border-left: 2px solid var(--red);
+  padding-left: 12px;
+  line-height: 1.5;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-dim);
+}
+
+.contact-item:first-child { padding-top: 0; }
+.contact-item:last-child  { border-bottom: none; padding-bottom: 0; }
+
+.ci-icon {
+  flex-shrink: 0;
+  width: 38px; height: 38px;
+  border: 1px solid var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.ci-icon::before,
+.ci-icon::after {
+  content: '';
+  position: absolute;
+  width: 5px; height: 5px;
+  border-color: var(--black);
+  border-style: solid;
+}
+
+.ci-icon::before { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+.ci-icon::after  { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+
+.contact-item:hover .ci-icon { background: var(--red); }
+
+.ci-icon svg {
+  width: 15px; height: 15px;
+  fill: var(--red-light);
+  transition: fill 0.3s;
+}
+
+.contact-item:hover .ci-icon svg { fill: #fff; }
+
+.ci-text h5 {
+  font-family: var(--font-head);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 3px;
+}
+
+.ci-text p {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ── FORM PANEL ── */
+.contact-form-panel {
+  background: var(--darker);
+  padding: 36px 32px;
+}
+
+.form-panel-label {
+  font-family: var(--font-head);
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--red-light);
+  margin-bottom: 10px;
+}
+
+.form-panel-title {
+  font-family: var(--font-head);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: none;
+  border-bottom: 1px solid rgba(139,0,0,0.35);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 9px 10px;
+  outline: none;
+  transition: border-color 0.3s, background 0.3s;
+  -webkit-appearance: none;
+}
+
+.form-group select option { background: #1a1a1a; color: var(--white); }
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--red-light);
+  background: rgba(139,0,0,0.04);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-dim);
+  font-style: italic;
+  font-size: 13px;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-head);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--red);
+  border: 1px solid var(--red);
+  padding: 13px 30px;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.submit-btn:hover {
+  background: var(--red-light);
+  border-color: var(--red-light);
+}
+
+.submit-btn svg {
+  width: 14px; height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s;
+}
+
+.submit-btn:hover svg { transform: translateX(4px); }
+
+/* ══════════════════════════════
+   BOTTOM ROW
+══════════════════════════════ */
+.contact-bottom-row {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-top: none;
+}
+
+.map-panel {
+  background: var(--card);
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-panel iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(1) invert(0.9) contrast(0.85);
+  opacity: 0.5;
+}
+
+.map-placeholder {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(139,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139,0,0,0.04) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.map-overlay-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  pointer-events: none;
+}
+
+.map-overlay-text p {
+  font-family: var(--font-head);
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.map-pin {
+  width: 11px; height: 11px;
+  background: var(--red-light);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  margin: 0 auto 8px;
+  box-shadow: 0 0 14px rgba(192,57,43,0.5);
+}
+
+/* ── STORE HOURS ── */
+.store-panel {
+  background: var(--darker);
+  padding: 30px 28px;
+}
+
+.hours-list {
+  list-style: none;
+  margin-top: 4px;
+}
+
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-dim);
+  font-size: 13px;
+}
+
+.hours-list li:last-child { border-bottom: none; }
+
+.hours-list .day {
+  font-family: var(--font-head);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.hours-list .time { color: var(--text); font-style: italic; }
+.hours-list .closed { color: var(--red-light); font-style: italic; }
+
+/* ══════════════════════════════
+   ANIMATION
+══════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 991px) {
+  .contact-grid,
+  .contact-bottom-row { grid-template-columns: 1fr; }
+  .map-panel { min-height: 200px; }
+  .form-row  { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .contact-hero { padding: 40px 16px 30px; }
+  .contact-body { padding: 30px 14px 50px; }
+  .contact-info-panel,
+  .contact-form-panel,
+  .store-panel { padding: 28px 20px; }
+}
+
+@media (max-width: 480px) {
+  .submit-btn { width: 100%; justify-content: center; }
+  .hero-ornament::before,
+  .hero-ornament::after { width: 30px; }
+}
+</style>
+</head>
+<body class="contact-page"> 
+<header>
+  <!-- ════ TOP BAR ════ -->
+  <div class="top-bar">
+    <span class="welcome-text">Welcome To Our Store</span>
+    <div class="top-actions">
+      <a href="#">My Account</a>
+      <a href="#">Wishlist</a>
+      <a href="#">Login</a>
+    </div>
+  </div>
+
+  <!-- ════ NAVBAR ════ -->
+  <nav class="navbar navbar-expand-lg" id="mainNavbar">
+    <div class="container-fluid px-4">
+
+      <a href="#" class="text-decoration-none">
+        <div class="logo-placeholder">Your Logo</div>
+      </a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navMenu">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">Gothic</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link a" href="#">Classic</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact us</a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="nav-right-icons">
+        <!-- sirf search icon wali line replace karo -->
+<a href="#" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" style="position:relative;">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge">2</span>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+</header> 
+<main>
+<!-- ══ HERO ══ -->
+<div class="contact-hero">
+  <p class="hero-eyebrow">Reach Out To Us</p>
+  <h1 class="hero-title">Contact <span>Us</span></h1>
+  <p class="hero-sub">We dwell in shadow, but our doors are open. Speak, and we shall answer.</p>
+  <div class="hero-ornament">
+    <div class="ornament-diamond"></div>
+  </div>
+</div>
+
+<!-- ══ MAIN BODY ══ -->
+<div class="contact-body">
+
+  <!-- TOP ROW: Info + Form -->
+  <div class="contact-grid">
+
+    <!-- LEFT: Contact Info -->
+    <div class="contact-info-panel">
+      <p class="panel-label">Find Us</p>
+      <h2 class="panel-title">Get In Touch</h2>
+      <p class="panel-desc">Whether you seek counsel or simply wish to converse — we are here, listening from the dark.</p>
+
+      <div class="contact-items">
+
+        <div class="contact-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div class="ci-text">
+            <h5>Location</h5>
+            <p>NORAURE London Oxford Street<br>012 United Kingdom</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div class="ci-text">
+            <h5>Email</h5>
+            <p>emailnoraure@gmail.com<br>emailsupport@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div class="ci-text">
+            <h5>Phone</h5>
+            <p>(+92) 3456 7890<br>(+92) 1234 5678</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+          </div>
+          <div class="ci-text">
+            <h5>Working Hours</h5>
+            <p>Mon – Fri: 9:00 AM – 8:00 PM<br>Sat – Sun: 10:00 AM – 5:00 PM</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="contact-form-panel">
+      <p class="form-panel-label">Send a Message</p>
+      <h2 class="form-panel-title">Write To Us</h2>
+
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Your first name"/>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Your last name"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com"/>
+        </div>
+
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="+92 000 0000000"/>
+        </div>
+
+        <div class="form-group">
+          <label>Subject</label>
+          <select>
+            <option value="" disabled selected>Select a subject</option>
+            <option>General Inquiry</option>
+            <option>Order Support</option>
+            <option>Returns & Refunds</option>
+            <option>Wholesale</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Speak your mind..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Send Message
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </form>
+    </div>
+
+  </div><!-- /contact-grid -->
+
+  <!-- BOTTOM ROW: Map + Hours -->
+  <div class="contact-bottom-row">
+
+    <!-- Map -->
+    <div class="map-panel">
+      <div class="map-placeholder"></div>
+      <!-- Replace src with your actual Google Maps embed URL -->
+      <!-- <iframe src="YOUR_GOOGLE_MAPS_EMBED_URL" allowfullscreen loading="lazy"></iframe> -->
+      <div class="map-overlay-text">
+        <div class="map-pin"></div>
+        <p>Your Map Goes Here</p>
+      </div>
+    </div>
+
+    <!-- Store Hours -->
+    <div class="store-panel">
+      <p class="panel-label">Store Hours</p>
+      <h3 class="panel-title" style="font-size:clamp(18px,2.2vw,24px); margin-bottom:24px;">Opening Times</h3>
+      <ul class="hours-list">
+        <li><span class="day">Monday</span><span class="time">9:00 – 20:00</span></li>
+        <li><span class="day">Tuesday</span><span class="time">9:00 – 20:00</span></li>
+        <li><span class="day">Wednesday</span><span class="time">9:00 – 20:00</span></li>
+        <li><span class="day">Thursday</span><span class="time">9:00 – 20:00</span></li>
+        <li><span class="day">Friday</span><span class="time">9:00 – 20:00</span></li>
+        <li><span class="day">Saturday</span><span class="time">10:00 – 17:00</span></li>
+        <li><span class="day">Sunday</span><span class="closed">Closed</span></li>
+      </ul>
+    </div>
+
+  </div><!-- /contact-bottom-row -->
+
+</div><!-- /contact-body -->
+</main>
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- Contact Us -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Contact Us</h6>
+          <ul class="footer-contact-list">
+            <li>
+              <div class="footer-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <span>NORAURE London Oxford Street<br>012 United Kingdom.</span>
+            </li>
+            <li>
+              <div class="footer-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </div>
+              <span>emailnoraure@gmail.com<br>emailsupport@gmail.com</span>
+            </li>
+            <li>
+              <div class="footer-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              </div>
+              <span>(+92) 3456 7890<br>(+92) 1234 5678</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Information -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Information</h6>
+          <ul class="footer-links">
+            <li><a href="#">My account</a></li>
+            <li><a href="#">Order history</a></li>
+            <li><a href="#">Wish List</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Site Map</a></li>
+          </ul>
+        </div>
+
+        <!-- Our Offers -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Our Offers</h6>
+          <ul class="footer-links">
+            <li><a href="#">New collection</a></li>
+            <li><a href="#">Best sellers</a></li>
+            <li><a href="#">Manufacturers</a></li>
+            <li><a href="#">New products</a></li>
+            <li><a href="#">Suppliers</a></li>
+            <li><a href="#">Delivery &amp; returns</a></li>
+          </ul>
+        </div>
+
+        <!-- Our Policy -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Our Policy</h6>
+          <ul class="footer-links">
+            <li><a href="#">Help &amp; Contact</a></li>
+            <li><a href="#">Shipping &amp; taxes</a></li>
+            <li><a href="#">Returns policy</a></li>
+            <li><a href="#">Careens</a></li>
+            <li><a href="#">Affiliates</a></li>
+            <li><a href="#">Legal Notice</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter + Social -->
+        <div class="col-12 col-sm-6 col-lg">
+          <h6 class="footer-heading">Get Newsletters</h6>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="Email" class="newsletter-input"/>
+            <button class="newsletter-btn">Subscribe</button>
+          </div>
+
+          <h6 class="footer-heading mt-4">Connect Us</h6>
+          <div class="footer-socials">
+            <a href="#" class="social-btn social-fb" title="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-btn social-tw" title="Twitter">
+              <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" class="social-btn social-li" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-btn social-rss" title="RSS">
+              <svg viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+            </a>
+            <a href="#" class="social-btn social-web" title="Website">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p class="footer-copy">Copyright &copy; <a href="#">HasThemes</a>. All Rights Reserved</p>
+        <div class="footer-payments">
+          <span class="payment-badge">PayPal</span>
+          <span class="payment-badge">Discover</span>
+          <span class="payment-badge">Cirrus</span>
+          <span class="payment-badge">VISA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
