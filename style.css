@@ -28,7 +28,7 @@ body{
 
 .top-bar .welcome-text{
   font-family:'Raleway',sans-serif;
-  font-size:11px;
+  font-size:13px;
   font-weight:500;
   letter-spacing:2.5px;
   text-transform:uppercase;
@@ -43,7 +43,7 @@ body{
 
 .top-bar .top-actions a{
   font-family:'Montserrat',sans-serif;
-  font-size:10px;
+  font-size:12px;
   font-weight:600;
   letter-spacing:1.5px;
   text-transform:uppercase;
@@ -90,13 +90,13 @@ body{
   align-items:center;
   justify-content:center;
   color:rgba(255,255,255,0.3);
-  font-size:9px;
+  font-size:11px;
   letter-spacing:2px;
   text-transform:uppercase;
 }
 
 .navbar-nav .nav-link{
-  font-size:11px;
+  font-size:13px;
   font-weight:600;
   letter-spacing:2.5px;
   text-transform:uppercase;
@@ -135,7 +135,7 @@ body{
   width: 55%;
 }
 .navbar-nav .nav-link .fa-chevron-down{
-  font-size:10px;
+  font-size:12px;
   margin-left:4px;
   transition:transform .3s;
 }
@@ -164,7 +164,7 @@ body{
 }
 
 .dropdown-item{
-  font-size:10px;
+  font-size:12px;
   font-weight:500;
   letter-spacing:2px;
   text-transform:uppercase;
@@ -190,7 +190,7 @@ body{
 
 .nav-right-icons a{
   color:#ccc;
-  font-size:15px;
+  font-size:17px;
   text-decoration:none;
   transition:color .3s;
   position:relative;
@@ -206,10 +206,10 @@ body{
   right:-9px;
   background:#800000;
   color:#fff;
-  font-size:8px;
+  font-size:9px;
   font-weight:700;
-  width:16px;
-  height:16px;
+  width:17px;
+  height:17px;
   border-radius:50%;
   display:flex;
   align-items:center;
@@ -276,7 +276,7 @@ body{
   border: none;
   outline: none;
   font-family: 'Raleway', sans-serif;
-  font-size: clamp(18px, 3vw, 26px);
+  font-size: clamp(20px, 3vw, 28px);
   font-weight: 300;
   letter-spacing: 2px;
   color: #fff;
@@ -290,7 +290,7 @@ body{
   background: none;
   border: none;
   color: #aaa;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
   padding: 0 8px;
   transition: color 0.3s;
@@ -305,7 +305,7 @@ body{
   background: none;
   border: none;
   color: #aaa;
-  font-size: 22px;
+  font-size: 24px;
   cursor: pointer;
   transition: color 0.3s, transform 0.3s;
 }
@@ -332,7 +332,7 @@ body{
   .navbar-nav .nav-link {
     padding: 10px 20px !important;
     border-bottom: 1px solid rgba(255,255,255,0.05);
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .navbar-nav .nav-link:last-child {
@@ -461,7 +461,7 @@ body{
 /* ── TYPOGRAPHY (fluid clamp — desktop se mobile tak auto) ── */
 .slide-tag {
   font-family: 'Raleway', sans-serif;
-  font-size: clamp(10px, 1.4vw, 14px);
+  font-size: clamp(13px, 1.6vw, 17px);
   font-weight: 500;
   letter-spacing: clamp(2px, 0.8vw, 5px);
   text-transform: lowercase;
@@ -471,7 +471,7 @@ body{
 
 .slide-heading {
   font-family: 'Raleway', sans-serif;
-  font-size: clamp(28px, 7.5vw, 90px);
+  font-size: clamp(34px, 8vw, 100px);
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
@@ -483,7 +483,7 @@ body{
 
 .slide-sub {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(9px, 1.6vw, 14px);
+  font-size: clamp(12px, 1.8vw, 17px);
   font-weight: 500;
   letter-spacing: clamp(2px, 0.7vw, 4px);
   text-transform: uppercase;
@@ -494,7 +494,7 @@ body{
 .slide-btn {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(9px, 1.3vw, 11px);
+  font-size: clamp(11px, 1.4vw, 13px);
   font-weight: 600;
   letter-spacing: clamp(1px, 0.5vw, 3px);
   text-transform: uppercase;
@@ -659,7 +659,7 @@ body{
 
 /* Typography */
 .promo-tag{
-  font-size:13px;
+  font-size:15px;
   font-weight:500;
   letter-spacing:6px;
   color:#1b2b4a;
@@ -669,7 +669,7 @@ body{
 
 .promo-title{
   font-family:'Raleway', sans-serif;
-  font-size:clamp(28px, 3vw, 48px);
+  font-size:clamp(32px, 3.2vw, 52px);
   font-weight:300;
   letter-spacing:5px;
   line-height:1.3;
@@ -682,7 +682,7 @@ body{
 .promo-btn{
   position:relative;
   display:inline-block;
-  font-size:12px;
+  font-size:14px;
   font-weight:500;
   letter-spacing:3px;
   text-transform:uppercase;
@@ -740,7 +740,7 @@ body{
 /* ── HEADING ── */
 .section-heading {
   font-family: 'Raleway', sans-serif;
-  font-size: clamp(16px, 3vw, 26px);
+  font-size: clamp(20px, 3.2vw, 30px);
   font-weight: 700;
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -842,7 +842,7 @@ body{
   align-items: center;
   justify-content: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   color: #333;
   z-index: 3;
@@ -872,7 +872,7 @@ body{
 
 .overlay-title {
   font-family: 'Raleway', sans-serif;
-  font-size: clamp(10px, 1.1vw, 13px);
+  font-size: clamp(12px, 1.2vw, 15px);
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -882,7 +882,7 @@ body{
 
 .overlay-price {
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   color: #ccc;
   margin-bottom: 6px;
 }
@@ -925,7 +925,7 @@ body{
 
 .add-to-cart-btn {
   font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -962,7 +962,7 @@ body{
 
 .view-all-btn {
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -1051,7 +1051,7 @@ body{
 /* ── TITLE ── */
 .feature-title {
   font-family: 'Raleway', sans-serif;
-  font-size: clamp(13px, 1.5vw, 15px);
+  font-size: clamp(15px, 1.7vw, 18px);
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -1075,7 +1075,7 @@ body{
 /* ── DESC ── */
 .feature-desc {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(12px, 1.2vw, 13px);
+  font-size: clamp(13px, 1.3vw, 15px);
   color: rgba(255,255,255,0.75);
   line-height: 1.7;
   max-width: 300px;
@@ -1098,7 +1098,7 @@ body{
 
 .tab-btn {
   font-family: 'Raleway', sans-serif;
-  font-size: clamp(11px, 1.4vw, 13px);
+  font-size: clamp(13px, 1.5vw, 15px);
   font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -1120,7 +1120,7 @@ body{
 
 .tab-sep {
   color: #ccc;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* reuse existing .section-divider & .dot */
@@ -1213,7 +1213,7 @@ body{
   background: #222;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   width: 40px;
   height: 40px;
@@ -1326,7 +1326,7 @@ body{
 
 .prod-name {
   font-family: 'Raleway', sans-serif;
-  font-size: clamp(11px, 1.1vw, 13px);
+  font-size: clamp(12px, 1.2vw, 15px);
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -1344,14 +1344,14 @@ body{
 
 .price-old {
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   color: #aaa;
   text-decoration: line-through;
 }
 
 .price-now {
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #333;
 }
@@ -1398,7 +1398,7 @@ body{
 
 .prod-cart-btn {
   font-family: 'Montserrat', sans-serif;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -1435,7 +1435,7 @@ body{
 /* ── HEADING ── */
 .footer-heading {
   font-family: 'Raleway', sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -1458,7 +1458,7 @@ body{
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.6;
   color: #aaa;
 }
@@ -1497,16 +1497,15 @@ body{
 }
 .footer-contact-list li span {
   transition: color 0.3s;
-  /* font-weight change hatao — shift ka cause yahi tha */
 }
 
 .footer-contact-list li:hover span {
   color: #fff;
-  font-weight: 400; /* same rakho — bold mat karo */
+  font-weight: 400;
 }
 
 .footer-links a {
-  font-size: 13px;
+  font-size: 14px;
   color: #aaa;
   text-decoration: none;
   transition: color 0.3s;
@@ -1516,7 +1515,7 @@ body{
 
 .footer-links a:hover {
   color: #fff;
-  font-weight: 400; /* bold hatao — shift ka cause tha */
+  font-weight: 400;
 }
 
 /* ── FACEBOOK — pehle se active style hatao, sirf hover ── */
@@ -1555,7 +1554,7 @@ body{
   outline: none;
   padding: 10px 14px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   color: #fff;
   min-width: 0;
 }
@@ -1567,7 +1566,7 @@ body{
   border: none;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -1645,7 +1644,7 @@ body{
 }
 
 .footer-copy {
-  font-size: 13px;
+  font-size: 14px;
   color: #777;
   margin: 0;
 }
@@ -1668,7 +1667,7 @@ body{
   background: #2a2a2a;
   border: 1px solid rgba(255,255,255,0.1);
   color: #ccc;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
   padding: 5px 10px;
@@ -1719,10 +1718,10 @@ body{
 }
 
 @media (max-width: 480px) {
-  .footer-heading { font-size: 12px; }
-  .footer-links a { font-size: 12px; }
-  .footer-contact-list li { font-size: 12px; }
-  .newsletter-btn { font-size: 9px; padding: 10px 10px; }
+  .footer-heading { font-size: 13px; }
+  .footer-links a { font-size: 13px; }
+  .footer-contact-list li { font-size: 13px; }
+  .newsletter-btn { font-size: 10px; padding: 10px 10px; }
 }
 /* ── RESPONSIVE ── */
 @media (max-width: 1199px) {
@@ -1739,7 +1738,7 @@ body{
   .products-track { gap: 12px; }
   .carousel-nav-btn { width: 34px; height: 34px; }
   .carousel-nav-btn svg { width: 16px; height: 16px; }
-  .prod-cart-btn { font-size: 8px; padding: 8px 10px; }
+  .prod-cart-btn { font-size: 9px; padding: 8px 10px; }
   .prod-wish-btn, .prod-compare-btn { width: 30px; height: 30px; }
 }
 
@@ -1757,14 +1756,14 @@ body{
   }
 
   .view-all-divider { padding: 20px 20px; }
-  .view-all-btn { font-size: 10px; padding: 10px 22px; margin: 0 14px; }
+  .view-all-btn { font-size: 11px; padding: 10px 22px; margin: 0 14px; }
 }
 
 @media (max-width: 480px) {
   .feature-icon-wrap { width: 65px; height: 65px; }
   .feature-icon-wrap svg { width: 26px; height: 26px; }
   .feature-title { letter-spacing: 2px; }
-  .view-all-btn { font-size: 9px; padding: 9px 18px; letter-spacing: 2px; }
+  .view-all-btn { font-size: 10px; padding: 9px 18px; letter-spacing: 2px; }
 }
 /* ── RESPONSIVE ── */
 @media (max-width: 991px) {
@@ -1796,8 +1795,8 @@ body{
 
   .action-btn { width: 30px; height: 30px; }
   .action-btn svg { width: 13px; height: 13px; }
-  .add-to-cart-btn { font-size: 9px; padding: 8px 14px; }
-  .sale-badge { width: 34px; height: 34px; font-size: 9px; }
+  .add-to-cart-btn { font-size: 10px; padding: 8px 14px; }
+  .sale-badge { width: 34px; height: 34px; font-size: 10px; }
   .overlay-actions { gap: 5px; }
 }
 /* ══════════════════════════════
@@ -1867,7 +1866,7 @@ body{
 @media(max-width:768px){
 
   .promo-title{
-    font-size:28px;
+    font-size:30px;
     letter-spacing:3px;
   }
 
@@ -1885,17 +1884,17 @@ body{
 @media(max-width:480px){
 
   .promo-title{
-    font-size:22px;
+    font-size:24px;
     letter-spacing:2px;
   }
 
   .promo-tag{
     letter-spacing:3px;
-    font-size:11px;
+    font-size:13px;
   }
 
   .promo-btn{
-    font-size:10px;
+    font-size:12px;
   }
 
 }
@@ -1925,7 +1924,7 @@ body{
   }
 
   .slide-heading{
-    font-size:clamp(28px,9vw,50px);
+    font-size:clamp(30px,9vw,54px);
   }
 
   .slide-sub{
@@ -1945,7 +1944,7 @@ body{
   }
 
   .slide-heading{
-    font-size:clamp(24px,8vw,36px);
+    font-size:clamp(26px,8vw,40px);
   }
 
   .slide-tag,
@@ -1955,7 +1954,7 @@ body{
 
   .slide-btn{
     padding:10px 22px;
-    font-size:9px;
+    font-size:11px;
   }
 
 }
@@ -1967,12 +1966,12 @@ body{
   .side-col .card-img-wrap { height: 185px; }
   .center-card .card-img-wrap { height: 378px; }
 
-  .overlay-title { font-size: 10px; letter-spacing: 1px; }
-  .overlay-price { font-size: 11px; margin-bottom: 4px; }
+  .overlay-title { font-size: 11px; letter-spacing: 1px; }
+  .overlay-price { font-size: 13px; margin-bottom: 4px; }
   .action-btn { width: 32px; height: 32px; }
   .action-btn svg { width: 13px; height: 13px; }
-  .add-to-cart-btn { font-size: 9px; padding: 7px 16px; letter-spacing: 1px; }
-  .sale-badge { width: 36px; height: 36px; font-size: 9px; }
+  .add-to-cart-btn { font-size: 10px; padding: 7px 16px; letter-spacing: 1px; }
+  .sale-badge { width: 36px; height: 36px; font-size: 10px; }
 }
 
 @media (max-width: 768px) {
@@ -1999,12 +1998,12 @@ body{
 
   /* Buttons hide karo tablet pe — sirf icons dikhao */
   .add-to-cart-btn { display: none; }
-  .overlay-title { font-size: 9px; letter-spacing: 1px; margin-bottom: 2px; }
-  .overlay-price { font-size: 10px; margin-bottom: 4px; }
+  .overlay-title { font-size: 10px; letter-spacing: 1px; margin-bottom: 2px; }
+  .overlay-price { font-size: 11px; margin-bottom: 4px; }
   .action-btn { width: 28px; height: 28px; }
   .action-btn svg { width: 12px; height: 12px; }
   .overlay-actions { gap: 5px; margin-bottom: 0; }
-  .sale-badge { width: 30px; height: 30px; font-size: 8px; top: 8px; left: 8px; }
+  .sale-badge { width: 30px; height: 30px; font-size: 9px; top: 8px; left: 8px; }
 }
 
 @media (max-width: 480px) {
@@ -2021,7 +2020,7 @@ body{
   .action-btn { width: 22px; height: 22px; }
   .action-btn svg { width: 10px; height: 10px; }
   .overlay-actions { margin-bottom: 0; }
-  .sale-badge { width: 22px; height: 22px; font-size: 7px; top: 6px; left: 6px; }
+  .sale-badge { width: 22px; height: 22px; font-size: 8px; top: 6px; left: 6px; }
 }
 @media (max-width: 991px) {
   .navbar-nav .nav-link.active {
