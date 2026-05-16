@@ -116,7 +116,7 @@ body{
 
 .navbar-nav .nav-link.active::after {
   width: 55% !important;
-  background: #800000;
+  background: #C8922A;
 }.navbar-nav .nav-link::after {
   content: '';
   position: absolute;
@@ -125,7 +125,7 @@ body{
   transform: translateX(-50%);
   width: 0;
   height: 1px;
-  background: #800000;
+  background: #C8922A;
   transition: width 0.3s;
   display: block !important;
 }
@@ -204,7 +204,7 @@ body{
   position:absolute;
   top:-8px;
   right:-9px;
-  background:#800000;
+  background: #C8922A;
   color:#fff;
   font-size:9px;
   font-weight:700;
@@ -341,8 +341,8 @@ body{
 
   /* Active underline — mobile pe side bar se dikhao */
   .navbar-nav .nav-link.active {
-    color: #800000 !important;
-    border-left: 2px solid #800000;
+    color: #C8922A !important;
+    border-left: 2px solid #C8922A;
     padding-left: 18px !important;
   }
 
@@ -506,8 +506,8 @@ body{
   transition: background .35s, color .35s, border-color .35s;
 }
 .slide-btn:hover {
-  background: #800000;
-  border-color: #800000;
+  background: #C8922A;
+  border-color: #C8922A;
   color: #fff;
 }
 
@@ -527,8 +527,8 @@ body{
 }
 .carousel-control-prev:hover .custom-ctrl,
 .carousel-control-next:hover .custom-ctrl {
-  background: #800000;
-  border-color: #800000;
+  background: #C8922A;
+  border-color: #C8922A;
 }
 
 .carousel-indicators { display:none; }
@@ -910,7 +910,7 @@ body{
 }
 
 .action-btn:hover {
-  background: #800000;
+  background: #C8922A;
   transform: scale(1.1);
 }
 
@@ -939,7 +939,7 @@ body{
 }
 
 .add-to-cart-btn:hover {
-  background: #800000;
+  background: #C8922A;
   color: #fff;
 }
 /* ── VIEW ALL DIVIDER ── */
@@ -977,8 +977,8 @@ body{
 }
 
 .view-all-btn:hover {
-  background: #800000;
-  border-color: #800000;
+  background: #C8922A;
+  border-color: #C8922A;
   color: #fff;
 }
 
@@ -1038,14 +1038,14 @@ body{
 
 /* Active (middle one — already colored) */
 .feature-item--active .feature-icon-wrap {
-  background: #800000;
-  border-color: #800000;
+  background: #C8922A;
+  border-color: #C8922A;
 }
 
 /* Hover — all items */
 .feature-item:hover .feature-icon-wrap {
-  background:#800000;
-  border-color:#800000;
+  background:#C8922A;
+  border-color:#C8922A;
 }
 
 /* ── TITLE ── */
@@ -1063,7 +1063,7 @@ body{
 .feature-line {
   width: 30px;
   height: 2px;
-  background: #800000;
+  background: #C8922A;
   margin: 0 auto 14px;
   transition: width 0.3s;
 }
@@ -1169,8 +1169,8 @@ body{
 }
 
 .carousel-nav-btn:hover {
-  background: #800000;
-  border-color: #800000;
+  background: #C8922A;
+  border-color: #C8922A;
 }
 
 .carousel-nav-btn:hover svg { fill: #fff; }
@@ -1308,7 +1308,7 @@ body{
 }
 
 .prod-action-btn:hover {
-  background: #800000;
+  background: #C8922A;
   transform: scale(1.1);
 }
 
@@ -1389,8 +1389,8 @@ body{
 
 .prod-wish-btn:hover,
 .prod-compare-btn:hover {
-  background: #800000;
-  border-color: #800000;
+  background: #C8922A;
+  border-color: #C8922A;
 }
 
 .prod-wish-btn:hover svg,
@@ -1413,8 +1413,8 @@ body{
 }
 
 .prod-cart-btn:hover {
-  background: #800000;
-  border-color: #800000;
+  background: #C8922A;
+  border-color: #C8922A;
   color: #fff;
 }
 /* ══════════════════════════════
@@ -1485,8 +1485,8 @@ body{
 }
 
 .footer-contact-list li:hover .footer-icon-wrap {
-  background: #800000;
-  border-color: #800000;
+  background: #C8922A;
+  border-color: #C8922A;
 }
 
 .footer-contact-list li:hover .footer-icon-wrap svg { fill: #fff; }
@@ -1530,8 +1530,8 @@ body{
 }
 
 .social-fb:hover {
-  background: #1877f2;
-  border-color: #1877f2;
+  background: #C8922A;
+  border-color: #f5b43a;
 }
 
 .social-fb:hover svg {
@@ -1610,20 +1610,20 @@ body{
 
 /* Facebook — filled icon needs fill not stroke */
 .social-fb svg { fill: #aaa; stroke: none; }
-.social-fb:hover { background: #800000; border-color:  #800000; }
+.social-fb:hover { background: #C8922A border-color:  #C8922A; }
 .social-fb:hover svg { fill: #fff; }
 
-.social-tw:hover { background: #800000; border-color:  #800000; }
+.social-tw:hover { background: #C8922A; border-color:  #C8922A; }
 .social-tw:hover svg { stroke: #fff; }
 
 .social-li svg { fill: #aaa; stroke: none; }
-.social-li:hover { background:  #800000; border-color:  #800000; }
+.social-li:hover { background:  #C8922A; border-color:  #C8922A; }
 .social-li:hover svg { fill: #fff; }
 
-.social-rss:hover { background:  #800000; border-color:  #800000; }
+.social-rss:hover { background:  #C8922A; border-color:  #C8922A; }
 .social-rss:hover svg { stroke: #fff; }
 
-.social-web:hover { background:  #800000; border-color:  #800000; }
+.social-web:hover { background:  #C8922A; border-color:  #C8922A; }
 .social-web:hover svg { stroke: #fff; }
 
 /* First social — orange active (like image) */
@@ -1678,9 +1678,9 @@ body{
       --gothic-dark:    #141414;
       --gothic-mid:     #1e1c1c;
       --gothic-border:  rgba(255,255,255,0.07);
-      --crimson:        #d41b1b;
-      --crimson-light:  #a01010;
-      --gold:           #ce0732;
+      --crimson:        #C8922A;
+      --crimson-light:  #f5b43b;
+      --gold:           #fda829;
       --off-white:      #e8e0d5;
       --muted:          #888;
      
@@ -1975,7 +1975,7 @@ body{
       font-family: var(--font-display);
       font-size: 42px;
       font-weight: 700;
-      color: rgba(180, 30, 30, 0.65);
+      color:#cf972f;
       line-height: 1;
       margin-bottom: 8px;
       letter-spacing: -1px;
@@ -2043,7 +2043,7 @@ body{
     .feature-badge {
       position: absolute;
       bottom: 24px; left: 24px;
-      background: rgba(128,0,0,0.9);
+      background: #C8922A;
       padding: 10px 18px;
       border-left: 3px solid var(--gold);
     }
