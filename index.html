@@ -1,22 +1,17 @@
+cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Navbar + Hero</title>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
- <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-  <!-- ════ TOP BAR ════ -->
   <div class="top-bar">
     <span class="welcome-text">Welcome To Our Store</span>
     <div class="top-actions">
@@ -26,63 +21,49 @@
     </div>
   </div>
 
-  <!-- ════ NAVBAR ════ -->
   <nav class="navbar navbar-expand-lg" id="mainNavbar">
     <div class="container-fluid px-4">
-
-     <a href="#" class="text-decoration-none">
-    <img src="Black-Raven-Horizontal Logo-golden.png" alt="Logo" class="logo">
-</a>
+      <a href="#" class="text-decoration-none">
+        <img src="Black-Raven-Horizontal Logo-golden.png" alt="Logo" class="logo">
+      </a>
       <button class="navbar-toggler" type="button"
         data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse justify-content-center" id="navMenu">
         <ul class="navbar-nav">
-
           <li class="nav-item">
             <a class="nav-link active" href="index.html">Home</a>
           </li>
-             <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link a" href="#">Classic</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="gothic.html">Gothic</a>
+            <a class="nav-link" href="gothic.html">Gothic</a>
           </li>
           <li class="nav-item">
-  <a class="nav-link a" href="#stitching">Stitching</a>
-</li>
+            <a class="nav-link a" href="#stitching">Stitching</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="contact.html">Contact us</a>
           </li>
-
         </ul>
       </div>
-
       <div class="nav-right-icons">
-        <!-- sirf search icon wali line replace karo -->
-<a href="#" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></a>
         <a href="#" style="position:relative;">
           <i class="fa-solid fa-cart-shopping"></i>
           <span class="cart-badge">2</span>
         </a>
       </div>
-
     </div>
   </nav>
-</header> 
-<!-- Search Modal -->
+</header>
+
 <div class="search-modal" id="searchModal">
   <div class="search-modal-inner">
     <form class="search-form" id="searchForm">
-      <input
-        type="text"
-        id="searchInput"
-        class="search-input"
-        placeholder="Search products..."
-        autocomplete="off"
-      />
+      <input type="text" id="searchInput" class="search-input" placeholder="Search products..." autocomplete="off"/>
       <button type="submit" class="search-submit">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
@@ -92,14 +73,11 @@
     </button>
   </div>
 </div>
+
 <main>
-  <!-- ════ HERO CAROUSEL ════ -->
+  <!-- HERO CAROUSEL -->
   <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="5000">
-
-    <!-- Slides -->
     <div class="carousel-inner">
-
-      <!-- Slide 1 -->
       <div class="carousel-item active slide-1">
         <div class="slide-bg"></div>
         <div class="slide-overlay"></div>
@@ -110,8 +88,6 @@
           <a href="#" class="slide-btn">Shop Now</a>
         </div>
       </div>
-
-      <!-- Slide 2 -->
       <div class="carousel-item slide-2">
         <div class="slide-bg"></div>
         <div class="slide-overlay"></div>
@@ -122,848 +98,612 @@
           <a href="#" class="slide-btn">Explore Now</a>
         </div>
       </div>
-
-      <!-- Slide 3 -->
       <div class="carousel-item slide-3">
         <div class="slide-bg"></div>
         <div class="slide-overlay"></div>
         <div class="slide-content">
           <p class="slide-tag">Summer fashion for season</p>
-          <h1 class="slide-heading">Fine<br>Jewelry</h1>
+          <h1 class="slide-heading">Fine<br>Clothing</h1>
           <p class="slide-sub">Timeless Pieces For Every Occasion</p>
           <a href="#" class="slide-btn">Discover Now</a>
         </div>
       </div>
-
     </div>
-
-    <!-- Controls -->
     <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
       <div class="custom-ctrl"><i class="fa-solid fa-chevron-left"></i></div>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
       <div class="custom-ctrl"><i class="fa-solid fa-chevron-right"></i></div>
     </button>
-
   </div>
-  <!-- ════════════════════════════════════════════════════════════════
-     FASHION PROMO SECTION
-════════════════════════════════════════════════════════════════ -->
-<section class="fashion-promos py-5">
-  <div class="container-fluid px-lg-5">
 
-    <div class="row g-4 align-items-stretch">
-
-      <!-- LEFT COLUMN -->
-      <div class="col-lg-4">
-        <div class="promo-card large-card">
-
-          <div class="promo-image">
-            <img src="img-1.webp" alt="">
+  <!-- FASHION PROMO SECTION -->
+  <section class="fashion-promos py-5">
+    <div class="container-fluid px-lg-5">
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-4">
+          <div class="promo-card large-card">
+            <div class="promo-image">
+              <img src="img-1.webp" alt="">
+            </div>
+            <div class="promo-content">
+              <p class="promo-tag">NEW DESIGN</p>
+              <h2 class="promo-title">SEND HER YOUR LOVE</h2>
+              <a href="#" class="promo-btn">GET IT NOW</a>
+            </div>
           </div>
-
-          <div class="promo-content">
-            <p class="promo-tag">NEW DESIGN</p>
-            <h2 class="promo-title">
-              SEND HER YOUR LOVE
-            </h2>
-
-            <a href="#" class="promo-btn">
-              GET IT NOW
-            </a>
+        </div>
+        <div class="col-lg-4">
+          <div class="promo-card text-card mb-4">
+            <div class="promo-content center-content">
+              <p class="promo-tag">NEW DESIGN</p>
+              <h2 class="promo-title">SEND HER YOUR LOVE</h2>
+              <a href="#" class="promo-btn">GET IT NOW</a>
+            </div>
           </div>
-
+          <div class="promo-card image-card">
+            <div class="promo-image full-image">
+              <img src="img-2.webp" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="promo-card tall-card">
+            <div class="promo-image">
+              <img src="img-3.webp" alt="">
+            </div>
+            <div class="promo-overlay-content">
+              <p class="promo-tag">MEN'S FASHION</p>
+              <h2 class="promo-title">MID SEASON SALE</h2>
+              <a href="#" class="promo-btn">VIEW COLLECTION</a>
+            </div>
+          </div>
         </div>
       </div>
-
-      <!-- CENTER COLUMN -->
-      <div class="col-lg-4">
-
-        <div class="promo-card text-card mb-4">
-
-          <div class="promo-content center-content">
-            <p class="promo-tag">NEW DESIGN</p>
-
-            <h2 class="promo-title">
-              SEND HER YOUR LOVE
-            </h2>
-
-            <a href="#" class="promo-btn">
-              GET IT NOW
-            </a>
-          </div>
-
-        </div>
-
-        <div class="promo-card image-card">
-
-          <div class="promo-image full-image">
-            <img src="img-2.webp" alt="">
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- RIGHT COLUMN -->
-      <div class="col-lg-4">
-        <div class="promo-card tall-card">
-
-          <div class="promo-image">
-            <img src="img-3.webp" alt="">
-          </div>
-
-          <div class="promo-overlay-content">
-            <p class="promo-tag">MEN'S FASHION</p>
-
-            <h2 class="promo-title">
-              MID SEASON SALE
-            </h2>
-
-            <a href="#" class="promo-btn">
-              VIEW COLLECTION
-            </a>
-          </div>
-
-        </div>
-      </div>
-
     </div>
+  </section>
+
+  <!-- Best Products Section — Clothes Only -->
+  <section class="best-products-section">
+    <div class="container-fluid px-4 px-md-5">
+      <div class="text-center">
+        <h2 class="section-heading">The Our Best Products</h2>
+        <div class="section-divider"><div class="dot"></div></div>
+      </div>
+      <div class="products-grid">
+
+        <!-- LEFT COLUMN -->
+        <div class="side-col">
+          <div class="product-card">
+            <div class="card-img-wrap">
+              <img src="download (10).webp" alt="Gothic Velvet Gown"/>
+              <div class="sale-badge">Sale!</div>
+              <div class="card-hover-overlay">
+                <div class="overlay-title">Frock with churidar pajama</div>
+                <div class="overlay-price"><s>$280.00</s> <span>$199.00</span></div>
+                <div class="overlay-actions">
+                  <button class="action-btn" title="Quick View">
+                    <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                  </button>
+                  <button class="action-btn" title="Wishlist">
+                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                  </button>
+                  <button class="action-btn" title="Compare">
+                    <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                  </button>
+                </div>
+                <button class="add-to-cart-btn">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="card-img-wrap">
+              <img src="Traditional Pishwas Dupatta Pakistani Wedding Dress.webp" alt="Lace Corset Dress"/>
+              <div class="card-hover-overlay">
+                <div class="overlay-title">Pishwas</div>
+                <div class="overlay-price"><span>$159.00</span></div>
+                <div class="overlay-actions">
+                  <button class="action-btn" title="Quick View">
+                    <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                  </button>
+                  <button class="action-btn" title="Wishlist">
+                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                  </button>
+                  <button class="action-btn" title="Compare">
+                    <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                  </button>
+                </div>
+                <button class="add-to-cart-btn">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENTER COLUMN -->
+        <div class="center-col">
+          <div class="product-card center-card">
+            <div class="card-img-wrap">
+              <img src="download (11).webp" alt="Bespoke Tailored Coat"/>
+              <div class="sale-badge">Sale!</div>
+              <div class="card-hover-overlay">
+                <div class="overlay-title">Sharara</div>
+                <div class="overlay-price"><s>$399.00</s> <span>$299.00</span></div>
+                <div class="overlay-actions">
+                  <button class="action-btn" title="Quick View">
+                    <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                  </button>
+                  <button class="action-btn" title="Wishlist">
+                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                  </button>
+                  <button class="action-btn" title="Compare">
+                    <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                  </button>
+                </div>
+                <button class="add-to-cart-btn">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="side-col">
+          <div class="product-card">
+            <div class="card-img-wrap">
+              <img src="download (12).webp" alt="Men's Gothic Jacket"/>
+              <div class="card-hover-overlay">
+                <div class="overlay-title">Angrakha</div>
+                <div class="overlay-price"><span>$249.00</span></div>
+                <div class="overlay-actions">
+                  <button class="action-btn" title="Quick View">
+                    <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                  </button>
+                  <button class="action-btn" title="Wishlist">
+                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                  </button>
+                  <button class="action-btn" title="Compare">
+                    <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                  </button>
+                </div>
+                <button class="add-to-cart-btn">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="card-img-wrap">
+              <img src="download (13).webp" alt="Silk Embroidered Blouse"/>
+              <div class="card-hover-overlay">
+                <div class="overlay-title">Bridal lehenga</div>
+                <div class="overlay-price"><span>$89.00</span></div>
+                <div class="overlay-actions">
+                  <button class="action-btn" title="Quick View">
+                    <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                  </button>
+                  <button class="action-btn" title="Wishlist">
+                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                  </button>
+                  <button class="action-btn" title="Compare">
+                    <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+                  </button>
+                </div>
+                <button class="add-to-cart-btn">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="view-all-divider">
+    <a href="#" class="view-all-btn">View All</a>
   </div>
-</section>
-<!-- Best Products Section -->
-<section class="best-products-section">
-  <div class="container-fluid px-4 px-md-5">
 
-    <!-- Heading -->
-    <div class="text-center">
-      <h2 class="section-heading">The Our Best Products</h2>
-      <div class="section-divider"><div class="dot"></div></div>
-    </div>
-
-    <!-- Grid -->
-    <div class="products-grid">
-
-      <!-- LEFT COLUMN -->
-      <div class="side-col">
-
-        <div class="product-card">
-          <div class="card-img-wrap">
-            <img src="bag.webp" alt="Teal Clutch Bag"/>
-            <div class="sale-badge">Sale!</div>
-            <div class="card-hover-overlay">
-              <div class="overlay-title">Teal Clutch Bag</div>
-              <div class="overlay-price"><s>$120.00</s> <span>$79.00</span></div>
-              <div class="overlay-actions">
-                <button class="action-btn" title="Quick View">
-                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-                </button>
-                <button class="action-btn" title="Wishlist">
-                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-                <button class="action-btn" title="Compare">
-                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
-                </button>
-              </div>
-              <button class="add-to-cart-btn">Add To Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrap">
-            <img src="product-2.jpg" alt="Gold Bracelet"/>
-            <div class="card-hover-overlay">
-              <div class="overlay-title">Gold Bracelet</div>
-              <div class="overlay-price"><span>$59.00</span></div>
-              <div class="overlay-actions">
-                <button class="action-btn" title="Quick View">
-                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-                </button>
-                <button class="action-btn" title="Wishlist">
-                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-                <button class="action-btn" title="Compare">
-                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
-                </button>
-              </div>
-              <button class="add-to-cart-btn">Add To Cart</button>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /LEFT -->
-
-      <!-- CENTER COLUMN -->
-      <div class="center-col">
-        <div class="product-card center-card">
-          <div class="card-img-wrap">
-            <img src="product-3.jpg" alt="Vintage Lambskin Shoe"/>
-            <div class="sale-badge">Sale!</div>
-            <div class="card-hover-overlay">
-              <div class="overlay-title">Vintage Lambskin Shoe</div>
-              <div class="overlay-price"><s>$299.00</s> <span>$199.00</span></div>
-              <div class="overlay-actions">
-                <button class="action-btn" title="Quick View">
-                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-                </button>
-                <button class="action-btn" title="Wishlist">
-                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-                <button class="action-btn" title="Compare">
-                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
-                </button>
-              </div>
-              <button class="add-to-cart-btn">Add To Cart</button>
-            </div>
-          </div>
-        </div>
-      </div><!-- /CENTER -->
-
-      <!-- RIGHT COLUMN -->
-      <div class="side-col">
-
-        <div class="product-card">
-          <div class="card-img-wrap">
-            <img src="product-4.jpg" alt="Brown Tote Bag"/>
-            <div class="card-hover-overlay">
-              <div class="overlay-title">Brown Tote Bag</div>
-              <div class="overlay-price"><span>$149.00</span></div>
-              <div class="overlay-actions">
-                <button class="action-btn" title="Quick View">
-                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-                </button>
-                <button class="action-btn" title="Wishlist">
-                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-                <button class="action-btn" title="Compare">
-                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
-                </button>
-              </div>
-              <button class="add-to-cart-btn">Add To Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="card-img-wrap">
-            <img src="product-5.jpg" alt="Silver Ring"/>
-            <div class="card-hover-overlay">
-              <div class="overlay-title">Silver Ring</div>
-              <div class="overlay-price"><span>$39.00</span></div>
-              <div class="overlay-actions">
-                <button class="action-btn" title="Quick View">
-                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-                </button>
-                <button class="action-btn" title="Wishlist">
-                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-                <button class="action-btn" title="Compare">
-                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
-                </button>
-              </div>
-              <button class="add-to-cart-btn">Add To Cart</button>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /RIGHT -->
-
-    </div><!-- /products-grid -->
-  </div>
-</section>
-<!-- View All Button Divider -->
-<div class="view-all-divider">
-  <a href="#" class="view-all-btn">View All</a>
-</div>
-
-<!-- Features Section -->
-<section class="features-section">
-  <div class="container">
-    <div class="row g-0">
-
-      <!-- Free Shipping -->
-      <div class="col-12 col-md-4">
-        <div class="feature-item">
-          <div class="feature-icon-wrap">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
-            </svg>
-          </div>
-          <h4 class="feature-title">Free Shipping</h4>
-          <div class="feature-line"></div>
-          <p class="feature-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, news do eiusmod tempor incididunt ut labore et dolore.</p>
-        </div>
-      </div>
-
-      <!-- 100% Money Back -->
-      <div class="col-12 col-md-4">
-        <div class="feature-item feature-item--active">
-          <div class="feature-icon-wrap">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
-            </svg>
-          </div>
-          <h4 class="feature-title">100% Money Back</h4>
-          <div class="feature-line"></div>
-          <p class="feature-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, news do eiusmod tempor incididunt ut labore et dolore.</p>
-        </div>
-      </div>
-
-      <!-- Online Support -->
-      <div class="col-12 col-md-4">
-        <div class="feature-item">
-          <div class="feature-icon-wrap">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-            </svg>
-          </div>
-          <h4 class="feature-title">Online Support</h4>
-          <div class="feature-line"></div>
-          <p class="feature-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, news do eiusmod tempor incididunt ut labore et dolore.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<section class="stitching-section" id="stitching">
-  <div class="container">
- 
-    <!-- ── HEADER ── -->
-    <div class="row justify-content-center text-center mb-2">
-      <div class="col-lg-7 col-md-9">
-        <p class="s-label">Bespoke Atelier</p>
-        <h2 class="s-heading">
-          The Art of <em>Master</em><br>Stitching
-        </h2>
-        <p class="s-sub mx-auto">
-          Where gothic elegance meets unmatched precision. Every stitch is placed by hand — by artisans who have spent decades perfecting the craft of bespoke tailoring.
-        </p>
-        <div class="gold-divider justify-content-center">
-          <span></span>
-          <i class="fa-solid fa-scissors"></i>
-          <span></span>
-        </div>
-      </div>
-    </div>
- 
-    <!-- ── STATS ── -->
-    <div class="row justify-content-center mb-5">
-      <div class="col-lg-10">
-        <div class="stat-strip">
-          <div class="stat-item">
-            <span class="stat-num">18<sup>+</sup></span>
-            <span class="stat-lbl">Years of Craft</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num">3<sup>k</sup></span>
-            <span class="stat-lbl">Pieces Created</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num">40<sup>+</sup></span>
-            <span class="stat-lbl">Master Tailors</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num">100<sup>%</sup></span>
-            <span class="stat-lbl">Handcrafted</span>
-          </div>
-        </div>
-      </div>
-    </div>
- 
-    <!-- ── SERVICE CARDS ── -->
-    <div class="row g-3 mb-0">
- 
-      <div class="col-lg-3 col-sm-6">
-        <div class="service-card">
-          <div class="sc-icon">
-            <i class="fa-solid fa-shirt"></i>
-          </div>
-          <h4 class="sc-title">Custom Gowns</h4>
-          <p class="sc-text">Fully bespoke gothic gowns tailored to your exact measurements — structured silhouettes, dramatic drape, and exquisite detail.</p>
-          <span class="sc-tag">Full Bespoke</span>
-        </div>
-      </div>
- 
-      <div class="col-lg-3 col-sm-6">
-        <div class="service-card">
-          <div class="sc-icon">
-            <i class="fa-solid fa-scissors" style="font-size:16px;"></i>
-          </div>
-          <h4 class="sc-title">Alteration & Fit</h4>
-          <p class="sc-text">Precision alterations that honour the original garment. We rebuild, resize, and refine — bringing every piece to a perfect fit.</p>
-          <span class="sc-tag">Expert Tailoring</span>
-        </div>
-      </div>
- 
-      <div class="col-lg-3 col-sm-6">
-        <div class="service-card">
-          <div class="sc-icon">
-            <i class="fa-solid fa-gem"></i>
-          </div>
-          <h4 class="sc-title">Embellishment</h4>
-          <p class="sc-text">Hand-applied lace, corsetry, beadwork, and embroidery — each piece carries the mark of our artisans' uncompromising eye for detail.</p>
-          <span class="sc-tag">Handcrafted Detail</span>
-        </div>
-      </div>
- 
-      <div class="col-lg-3 col-sm-6">
-        <div class="service-card">
-          <div class="sc-icon">
-            <i class="fa-solid fa-drafting-compass"></i>
-          </div>
-          <h4 class="sc-title">Pattern Design</h4>
-          <p class="sc-text">Our master pattern makers draft from scratch — no templates. Each design is born entirely from your vision and our expertise.</p>
-          <span class="sc-tag">Original Patterns</span>
-        </div>
-      </div>
- 
-    </div>
- 
-  </div><!-- /container -->
- 
-  <!-- ── PROCESS STRIP ── -->
-  <div class="process-section">
+  <!-- Features Section -->
+  <section class="features-section">
     <div class="container">
-      <div class="row justify-content-center text-center mb-4">
-        <div class="col">
-          <p class="s-label">Our Process</p>
-        </div>
-      </div>
-      <div class="row g-3 justify-content-center">
- 
-        <div class="col-6 col-md-3 col-lg-2">
-          <div class="process-step">
-            <div class="step-num">01</div>
-            <div class="step-title">Consultation</div>
-            <div class="step-desc">Vision & style discussion</div>
+      <div class="row g-0">
+        <div class="col-12 col-md-4">
+          <div class="feature-item">
+            <div class="feature-icon-wrap">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+              </svg>
+            </div>
+            <h4 class="feature-title">Free Shipping</h4>
+            <div class="feature-line"></div>
+            <p class="feature-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, news do eiusmod tempor incididunt ut labore et dolore.</p>
           </div>
         </div>
- 
-        <div class="col-6 col-md-3 col-lg-2">
-          <div class="process-step">
-            <div class="step-num">02</div>
-            <div class="step-title">Measurement</div>
-            <div class="step-desc">Precise body profiling</div>
+        <div class="col-12 col-md-4">
+          <div class="feature-item feature-item--active">
+            <div class="feature-icon-wrap">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+              </svg>
+            </div>
+            <h4 class="feature-title">100% Money Back</h4>
+            <div class="feature-line"></div>
+            <p class="feature-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, news do eiusmod tempor incididunt ut labore et dolore.</p>
           </div>
         </div>
- 
-        <div class="col-6 col-md-3 col-lg-2">
-          <div class="process-step">
-            <div class="step-num">03</div>
-            <div class="step-title">Pattern Draft</div>
-            <div class="step-desc">Custom pattern creation</div>
+        <div class="col-12 col-md-4">
+          <div class="feature-item">
+            <div class="feature-icon-wrap">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+              </svg>
+            </div>
+            <h4 class="feature-title">Online Support</h4>
+            <div class="feature-line"></div>
+            <p class="feature-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, news do eiusmod tempor incididunt ut labore et dolore.</p>
           </div>
         </div>
- 
-        <div class="col-6 col-md-3 col-lg-2">
-          <div class="process-step">
-            <div class="step-num">04</div>
-            <div class="step-title">Hand Stitch</div>
-            <div class="step-desc">Artisan construction</div>
-          </div>
-        </div>
- 
-        <div class="col-6 col-md-3 col-lg-2">
-          <div class="process-step">
-            <div class="step-num">05</div>
-            <div class="step-title">Final Fitting</div>
-            <div class="step-desc">Perfect & deliver</div>
-          </div>
-        </div>
- 
       </div>
     </div>
-  </div>
- 
-  <div class="container">
- 
-    <!-- ── FEATURE ROW ── -->
-    <div class="feature-row">
-      <div class="row align-items-center g-0">
- 
-        <!-- Visual panel -->
-        <div class="col-lg-5">
-          <div class="feature-visual">
-            <!-- Gothic tailor dummy SVG illustration -->
-            <svg class="tailor-illustration" viewBox="0 0 200 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- mannequin stand -->
-              <rect x="95" y="280" width="10" height="30" fill="rgba(200,137,42,0.3)"/>
-              <rect x="70" y="308" width="60" height="5" rx="2" fill="rgba(200,137,42,0.3)"/>
-              <!-- neck -->
-              <rect x="91" y="60" width="18" height="24" rx="4" fill="rgba(232,224,213,0.12)"/>
-              <!-- body torso -->
-              <path d="M55 84 Q40 130 42 200 L158 200 Q160 130 145 84 Q122 76 100 76 Q78 76 55 84Z" fill="rgba(232,224,213,0.08)" stroke="rgba(200,137,42,0.35)" stroke-width="1"/>
-              <!-- waist cinch line -->
-              <path d="M50 150 Q100 140 150 150" stroke="rgba(200,137,42,0.4)" stroke-width="1" stroke-dasharray="4 4"/>
-              <!-- shoulder line -->
-              <line x1="40" y1="92" x2="160" y2="92" stroke="rgba(200,137,42,0.25)" stroke-width="1"/>
-              <!-- collar gothic points -->
-              <path d="M88 80 L100 68 L112 80" stroke="rgba(200,137,42,0.6)" stroke-width="1.5" fill="none"/>
-              <!-- decorative buttons -->
-              <circle cx="100" cy="100" r="3" fill="rgba(200,137,42,0.5)"/>
-              <circle cx="100" cy="118" r="3" fill="rgba(200,137,42,0.5)"/>
-              <circle cx="100" cy="136" r="3" fill="rgba(200,137,42,0.5)"/>
-              <!-- gothic fleur side ornaments -->
-              <text x="30" y="160" font-size="22" fill="rgba(128,0,0,0.35)" font-family="serif">✦</text>
-              <text x="148" y="160" font-size="22" fill="rgba(128,0,0,0.35)" font-family="serif">✦</text>
-              <!-- measurement marks -->
-              <line x1="30" y1="84" x2="30" y2="200" stroke="rgba(200,137,42,0.2)" stroke-width="1"/>
-              <line x1="27" y1="84" x2="33" y2="84" stroke="rgba(200,137,42,0.4)" stroke-width="1"/>
-              <line x1="27" y1="200" x2="33" y2="200" stroke="rgba(200,137,42,0.4)" stroke-width="1"/>
-              <text x="8" y="147" font-size="8" fill="rgba(200,137,42,0.5)" font-family="monospace">116cm</text>
-            </svg>
- 
-            <div class="feature-badge">
-              <p><strong>Established 2006</strong></p>
-              <p>London · Bespoke Atelier</p>
-            </div>
+  </section>
+
+  <!-- Stitching Section (unchanged) -->
+  <section class="stitching-section" id="stitching">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-2">
+        <div class="col-lg-7 col-md-9">
+          <p class="s-label">Bespoke Atelier</p>
+          <h2 class="s-heading">The Art of <em>Master</em><br>Stitching</h2>
+          <p class="s-sub mx-auto">Where gothic elegance meets unmatched precision. Every stitch is placed by hand — by artisans who have spent decades perfecting the craft of bespoke tailoring.</p>
+          <div class="gold-divider justify-content-center">
+            <span></span><i class="fa-solid fa-scissors"></i><span></span>
           </div>
-        </div>
- 
-        <!-- Content panel -->
-        <div class="col-lg-7">
-          <div class="feature-content">
-            <p class="fc-label">Why Choose Us</p>
-            <h3 class="fc-heading">
-              Talent Woven Into<br>
-              <em>Every Thread</em>
-            </h3>
-            <p class="fc-text">
-              Our atelier is home to over 40 master tailors — each with a minimum of 10 years of specialist gothic and haute couture experience. We don't rush. We don't cut corners. Every garment leaves our studio only when it is truly perfect.
-            </p>
- 
-            <ul class="fc-list">
-              <li>
-                <i class="fa-solid fa-circle-dot"></i>
-                Hand-measured by a senior tailor — no digital shortcuts
-              </li>
-              <li>
-                <i class="fa-solid fa-circle-dot"></i>
-                Premium fabrics: duchess satin, silk brocade, velvet, organza
-              </li>
-              <li>
-                <i class="fa-solid fa-circle-dot"></i>
-                Gothic embroidery & corsetry specialists on-site
-              </li>
-              <li>
-                <i class="fa-solid fa-circle-dot"></i>
-                Unlimited alteration rounds until your fit is flawless
-              </li>
-              <li>
-                <i class="fa-solid fa-circle-dot"></i>
-                Confidential, private fitting rooms — by appointment
-              </li>
-            </ul>
- 
-            <a href="#" class="btn-gothic">Book a Fitting</a>
-            <a href="#" class="btn-gothic btn-gothic-outline">View Gallery</a>
-          </div>
-        </div>
- 
-      </div>
-    </div>
- 
-    <!-- ── TESTIMONIALS ── -->
-    <div class="testimonial-strip">
-      <div class="row justify-content-center text-center mb-4">
-        <div class="col">
-          <p class="s-label">Client Words</p>
         </div>
       </div>
-      <div class="row g-3">
- 
-        <div class="col-md-4">
-          <div class="testi-card">
-            <div class="testi-quote">"</div>
-            <div class="testi-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <p class="testi-text">The gown they created for my wedding was beyond anything I imagined. Every detail was perfect — the corsetry, the lace, the dramatic train.</p>
-            <span class="testi-author">— Elara V., London</span>
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10">
+          <div class="stat-strip">
+            <div class="stat-item"><span class="stat-num">18<sup>+</sup></span><span class="stat-lbl">Years of Craft</span></div>
+            <div class="stat-item"><span class="stat-num">3<sup>k</sup></span><span class="stat-lbl">Pieces Created</span></div>
+            <div class="stat-item"><span class="stat-num">40<sup>+</sup></span><span class="stat-lbl">Master Tailors</span></div>
+            <div class="stat-item"><span class="stat-num">100<sup>%</sup></span><span class="stat-lbl">Handcrafted</span></div>
           </div>
         </div>
- 
-        <div class="col-md-4">
-          <div class="testi-card">
-            <div class="testi-quote">"</div>
-            <div class="testi-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <p class="testi-text">I brought in a worn vintage coat expecting minor alterations. They rebuilt it entirely. The fit and craftsmanship are extraordinary — it's an heirloom now.</p>
-            <span class="testi-author">— Marcus T., Edinburgh</span>
+      </div>
+      <div class="row g-3 mb-0">
+        <div class="col-lg-3 col-sm-6">
+          <div class="service-card">
+            <div class="sc-icon"><i class="fa-solid fa-shirt"></i></div>
+            <h4 class="sc-title">Custom Gowns</h4>
+            <p class="sc-text">Fully bespoke gothic gowns tailored to your exact measurements — structured silhouettes, dramatic drape, and exquisite detail.</p>
+            <span class="sc-tag">Full Bespoke</span>
           </div>
         </div>
- 
-        <div class="col-md-4">
-          <div class="testi-card">
-            <div class="testi-quote">"</div>
-            <div class="testi-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <p class="testi-text">Their tailors understand gothic aesthetics deeply. Not just technically skilled — they genuinely love the craft and it shows in every stitch.</p>
-            <span class="testi-author">— Seraphine M., Paris</span>
+        <div class="col-lg-3 col-sm-6">
+          <div class="service-card">
+            <div class="sc-icon"><i class="fa-solid fa-scissors" style="font-size:16px;"></i></div>
+            <h4 class="sc-title">Alteration & Fit</h4>
+            <p class="sc-text">Precision alterations that honour the original garment. We rebuild, resize, and refine — bringing every piece to a perfect fit.</p>
+            <span class="sc-tag">Expert Tailoring</span>
           </div>
         </div>
- 
+        <div class="col-lg-3 col-sm-6">
+          <div class="service-card">
+            <div class="sc-icon"><i class="fa-solid fa-gem"></i></div>
+            <h4 class="sc-title">Embellishment</h4>
+            <p class="sc-text">Hand-applied lace, corsetry, beadwork, and embroidery — each piece carries the mark of our artisans' uncompromising eye for detail.</p>
+            <span class="sc-tag">Handcrafted Detail</span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="service-card">
+            <div class="sc-icon"><i class="fa-solid fa-drafting-compass"></i></div>
+            <h4 class="sc-title">Pattern Design</h4>
+            <p class="sc-text">Our master pattern makers draft from scratch — no templates. Each design is born entirely from your vision and our expertise.</p>
+            <span class="sc-tag">Original Patterns</span>
+          </div>
+        </div>
       </div>
     </div>
- 
-    <!-- ── BOTTOM CTA ── -->
-    <div class="section-bottom-label">
-      <p class="sbl-text">Appointments available Monday – Saturday, 10am – 7pm</p>
-      <div class="d-flex justify-content-center gap-3 flex-wrap">
-        <div class="sbl-badge"><i class="fa-solid fa-phone"></i> (+92) 3456 7890</div>
-        <div class="sbl-badge"><i class="fa-solid fa-envelope"></i> stitch@atelier.com</div>
-        <div class="sbl-badge"><i class="fa-solid fa-location-dot"></i> Oxford Street, London</div>
+
+    <div class="process-section">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-4">
+          <div class="col"><p class="s-label">Our Process</p></div>
+        </div>
+        <div class="row g-3 justify-content-center">
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="process-step"><div class="step-num">01</div><div class="step-title">Consultation</div><div class="step-desc">Vision & style discussion</div></div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="process-step"><div class="step-num">02</div><div class="step-title">Measurement</div><div class="step-desc">Precise body profiling</div></div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="process-step"><div class="step-num">03</div><div class="step-title">Pattern Draft</div><div class="step-desc">Custom pattern creation</div></div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="process-step"><div class="step-num">04</div><div class="step-title">Hand Stitch</div><div class="step-desc">Artisan construction</div></div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="process-step"><div class="step-num">05</div><div class="step-title">Final Fitting</div><div class="step-desc">Perfect & deliver</div></div>
+          </div>
+        </div>
       </div>
     </div>
- 
-  </div><!-- /container -->
-</section>
-<!-- Products Tabs Section -->
-<section class="products-tabs-section">
-  <div class="container">
 
-    <!-- Tab Headings -->
-    <div class="products-tabs-header">
-      <button class="tab-btn" data-tab="bestseller">Bestseller</button>
-      <span class="tab-sep">|</span>
-      <button class="tab-btn active" data-tab="new">New Products</button>
-      <span class="tab-sep">|</span>
-      <button class="tab-btn" data-tab="musthave">Must Have</button>
+    <div class="container">
+      <div class="feature-row">
+        <div class="row align-items-center g-0">
+          <div class="col-lg-5">
+            <div class="feature-visual">
+              <svg class="tailor-illustration" viewBox="0 0 200 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="95" y="280" width="10" height="30" fill="rgba(200,137,42,0.3)"/>
+                <rect x="70" y="308" width="60" height="5" rx="2" fill="rgba(200,137,42,0.3)"/>
+                <rect x="91" y="60" width="18" height="24" rx="4" fill="rgba(232,224,213,0.12)"/>
+                <path d="M55 84 Q40 130 42 200 L158 200 Q160 130 145 84 Q122 76 100 76 Q78 76 55 84Z" fill="rgba(232,224,213,0.08)" stroke="rgba(200,137,42,0.35)" stroke-width="1"/>
+                <path d="M50 150 Q100 140 150 150" stroke="rgba(200,137,42,0.4)" stroke-width="1" stroke-dasharray="4 4"/>
+                <line x1="40" y1="92" x2="160" y2="92" stroke="rgba(200,137,42,0.25)" stroke-width="1"/>
+                <path d="M88 80 L100 68 L112 80" stroke="rgba(200,137,42,0.6)" stroke-width="1.5" fill="none"/>
+                <circle cx="100" cy="100" r="3" fill="rgba(200,137,42,0.5)"/>
+                <circle cx="100" cy="118" r="3" fill="rgba(200,137,42,0.5)"/>
+                <circle cx="100" cy="136" r="3" fill="rgba(200,137,42,0.5)"/>
+                <text x="30" y="160" font-size="22" fill="rgba(128,0,0,0.35)" font-family="serif">✦</text>
+                <text x="148" y="160" font-size="22" fill="rgba(128,0,0,0.35)" font-family="serif">✦</text>
+                <line x1="30" y1="84" x2="30" y2="200" stroke="rgba(200,137,42,0.2)" stroke-width="1"/>
+                <line x1="27" y1="84" x2="33" y2="84" stroke="rgba(200,137,42,0.4)" stroke-width="1"/>
+                <line x1="27" y1="200" x2="33" y2="200" stroke="rgba(200,137,42,0.4)" stroke-width="1"/>
+                <text x="8" y="147" font-size="8" fill="rgba(200,137,42,0.5)" font-family="monospace">116cm</text>
+              </svg>
+              <div class="feature-badge">
+                <p><strong>Established 2006</strong></p>
+                <p>London · Bespoke Atelier</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="feature-content">
+              <p class="fc-label">Why Choose Us</p>
+              <h3 class="fc-heading">Talent Woven Into<br><em>Every Thread</em></h3>
+              <p class="fc-text">Our atelier is home to over 40 master tailors — each with a minimum of 10 years of specialist gothic and haute couture experience. We don't rush. We don't cut corners. Every garment leaves our studio only when it is truly perfect.</p>
+              <ul class="fc-list">
+                <li><i class="fa-solid fa-circle-dot"></i> Hand-measured by a senior tailor — no digital shortcuts</li>
+                <li><i class="fa-solid fa-circle-dot"></i> Premium fabrics: duchess satin, silk brocade, velvet, organza</li>
+                <li><i class="fa-solid fa-circle-dot"></i> Gothic embroidery & corsetry specialists on-site</li>
+                <li><i class="fa-solid fa-circle-dot"></i> Unlimited alteration rounds until your fit is flawless</li>
+                <li><i class="fa-solid fa-circle-dot"></i> Confidential, private fitting rooms — by appointment</li>
+              </ul>
+              <a href="#" class="btn-gothic">Book a Fitting</a>
+              <a href="#" class="btn-gothic btn-gothic-outline">View Gallery</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-strip">
+        <div class="row justify-content-center text-center mb-4">
+          <div class="col"><p class="s-label">Client Words</p></div>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="testi-card">
+              <div class="testi-quote">"</div>
+              <div class="testi-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testi-text">The gown they created for my wedding was beyond anything I imagined. Every detail was perfect — the corsetry, the lace, the dramatic train.</p>
+              <span class="testi-author">— Elara V., London</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testi-card">
+              <div class="testi-quote">"</div>
+              <div class="testi-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testi-text">I brought in a worn vintage coat expecting minor alterations. They rebuilt it entirely. The fit and craftsmanship are extraordinary — it's an heirloom now.</p>
+              <span class="testi-author">— Marcus T., Edinburgh</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testi-card">
+              <div class="testi-quote">"</div>
+              <div class="testi-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testi-text">Their tailors understand gothic aesthetics deeply. Not just technically skilled — they genuinely love the craft and it shows in every stitch.</p>
+              <span class="testi-author">— Seraphine M., Paris</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-bottom-label">
+        <p class="sbl-text">Appointments available Monday – Saturday, 10am – 7pm</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <div class="sbl-badge"><i class="fa-solid fa-phone"></i> (+92) 3456 7890</div>
+          <div class="sbl-badge"><i class="fa-solid fa-envelope"></i> stitch@atelier.com</div>
+          <div class="sbl-badge"><i class="fa-solid fa-location-dot"></i> Oxford Street, London</div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Divider -->
-    <div class="section-divider mb-4"><div class="dot"></div></div>
+  <!-- Products Tabs Section — Clothes Only -->
+  <section class="products-tabs-section">
+    <div class="container">
+      <div class="products-tabs-header">
+        <button class="tab-btn" data-tab="bestseller">Bestseller</button>
+        <span class="tab-sep">|</span>
+        <button class="tab-btn active" data-tab="new">New Products</button>
+        <span class="tab-sep">|</span>
+        <button class="tab-btn" data-tab="musthave">Must Have</button>
+      </div>
+      <div class="section-divider mb-4"><div class="dot"></div></div>
+      <div class="products-carousel-wrapper">
+        <button class="carousel-nav-btn prev-btn" id="productsPrev">
+          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        <div class="products-track-outer">
+          <div class="products-track" id="productsTrack">
 
-    <!-- Carousel Wrapper -->
-    <div class="products-carousel-wrapper">
-
-      <!-- Prev Button -->
-      <button class="carousel-nav-btn prev-btn" id="productsPrev">
-        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-      </button>
-
-      <!-- Cards Track -->
-      <div class="products-track-outer">
-        <div class="products-track" id="productsTrack">
-
-          <!-- Card 1 -->
-          <div class="prod-card">
-            <div class="prod-img-wrap">
-              <img src="product-1.jpg" alt="Vintage Lambskin Shoe"/>
-              <span class="prod-badge">Sale!</span>
-              <div class="prod-hover-actions">
-                <button class="prod-action-btn" title="Quick View">
-                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-                </button>
+            <!-- Card 1 -->
+            <div class="prod-card">
+              <div class="prod-img-wrap">
+                <img src="download (12).webp" alt="Gothic Velvet Gown"/>
+                <span class="prod-badge">Sale!</span>
+                <div class="prod-hover-actions">
+                  <button class="prod-action-btn" title="Quick View">
+                    <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="prod-info">
+                <h5 class="prod-name">Anarkali Frock</h5>
+                <div class="prod-price"><span class="price-now">$199.00</span></div>
+                <div class="prod-bottom-actions">
+                  <button class="prod-wish-btn" title="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                  <button class="prod-cart-btn">Add To Cart</button>
+                  <button class="prod-compare-btn" title="Compare"><svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></button>
+                </div>
               </div>
             </div>
-            <div class="prod-info">
-              <h5 class="prod-name">Vintage Lambskin Shoe</h5>
-              <div class="prod-price"><span class="price-now">$170.00</span></div>
-              <div class="prod-bottom-actions">
-                <button class="prod-wish-btn" title="Wishlist">
-                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-                <button class="prod-cart-btn">Add To Cart</button>
-                <button class="prod-compare-btn" title="Compare">
-                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
-                </button>
+
+            <!-- Card 2 -->
+            <div class="prod-card">
+              <div class="prod-img-wrap">
+                <img src="download (11).webp" alt="Lace Corset Dress"/>
+                <div class="prod-hover-actions">
+                  <button class="prod-action-btn" title="Quick View">
+                    <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="prod-info">
+                <h5 class="prod-name">Sharara</h5>
+                <div class="prod-price"><span class="price-now">$159.00</span></div>
+                <div class="prod-bottom-actions">
+                  <button class="prod-wish-btn" title="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                  <button class="prod-cart-btn">Add To Cart</button>
+                  <button class="prod-compare-btn" title="Compare"><svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></button>
+                </div>
               </div>
             </div>
+
+            <!-- Card 3 -->
+            <div class="prod-card">
+              <div class="prod-img-wrap">
+                <img src="download (13).webp" alt="Bespoke Tailored Coat"/>
+                <span class="prod-badge">Sale!</span>
+                <div class="prod-hover-actions">
+                  <button class="prod-action-btn" title="Quick View">
+                    <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="prod-info">
+                <h5 class="prod-name">Bridal Lehenga</h5>
+                <div class="prod-price"><span class="price-now">$299.00</span></div>
+                <div class="prod-bottom-actions">
+                  <button class="prod-wish-btn" title="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                  <button class="prod-cart-btn">Add To Cart</button>
+                  <button class="prod-compare-btn" title="Compare"><svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="prod-card">
+              <div class="prod-img-wrap">
+                <img src="Traditional Pishwas Dupatta Pakistani Wedding Dress.webp" alt="Men's Gothic Jacket"/>
+                <div class="prod-hover-actions">
+                  <button class="prod-action-btn" title="Quick View">
+                    <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="prod-info">
+                <h5 class="prod-name">Peshwas</h5>
+                <div class="prod-price">
+                  <span class="price-old">$280.00</span>
+                  <span class="price-now">$249.00</span>
+                </div>
+                <div class="prod-bottom-actions">
+                  <button class="prod-wish-btn" title="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                  <button class="prod-cart-btn">Add To Cart</button>
+                  <button class="prod-compare-btn" title="Compare"><svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="prod-card">
+              <div class="prod-img-wrap">
+                <img src="download (10).webp" alt="Silk Embroidered Blouse"/>
+                <div class="prod-hover-actions">
+                  <button class="prod-action-btn" title="Quick View">
+                    <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="prod-info">
+                <h5 class="prod-name">Angrakha</h5>
+                <div class="prod-price"><span class="price-now">$89.00</span></div>
+                <div class="prod-bottom-actions">
+                  <button class="prod-wish-btn" title="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                  <button class="prod-cart-btn">Add To Cart</button>
+                  <button class="prod-compare-btn" title="Compare"><svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="prod-card">
+              <div class="prod-img-wrap">
+                <img src="download (9).webp" alt="Victorian Ruffle Skirt"/>
+                <span class="prod-badge">Sale!</span>
+                <div class="prod-hover-actions">
+                  <button class="prod-action-btn" title="Quick View">
+                    <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="prod-info">
+                <h5 class="prod-name">Frock with Churidar Pajama</h5>
+                <div class="prod-price">
+                  <span class="price-old">$180.00</span>
+                  <span class="price-now">$130.00</span>
+                </div>
+                <div class="prod-bottom-actions">
+                  <button class="prod-wish-btn" title="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                  <button class="prod-cart-btn">Add To Cart</button>
+                  <button class="prod-compare-btn" title="Compare"><svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg></button>
+                </div>
+              </div>
+            </div>
+
           </div>
-
-          <!-- Card 2 -->
-          <div class="prod-card">
-            <div class="prod-img-wrap">
-              <img src="product-2.jpg" alt="Leather Shoe"/>
-              <div class="prod-hover-actions">
-                <button class="prod-action-btn" title="Quick View">
-                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-                </button>
-              </div>
-            </div>
-            <div class="prod-info">
-              <h5 class="prod-name">Leather Shoe</h5>
-              <div class="prod-price"><span class="price-now">$220.00</span></div>
-              <div class="prod-bottom-actions">
-                <button class="prod-wish-btn" title="Wishlist">
-                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-                <button class="prod-cart-btn">Add To Cart</button>
-                <button class="prod-compare-btn" title="Compare">
-                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="prod-card">
-            <div class="prod-img-wrap">
-              <img src="product-3.jpg" alt="Vintage Shoulder Bag"/>
-              <span class="prod-badge">Sale!</span>
-              <div class="prod-hover-actions">
-                <button class="prod-action-btn" title="Quick View">
-                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-                </button>
-              </div>
-            </div>
-            <div class="prod-info">
-              <h5 class="prod-name">Vintage Shoulder Bag</h5>
-              <div class="prod-price"><span class="price-now">$99.00</span></div>
-              <div class="prod-bottom-actions">
-                <button class="prod-wish-btn" title="Wishlist">
-                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-                <button class="prod-cart-btn">Add To Cart</button>
-                <button class="prod-compare-btn" title="Compare">
-                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="prod-card">
-            <div class="prod-img-wrap">
-              <img src="product-4.jpg" alt="Leather Bag"/>
-              <div class="prod-hover-actions">
-                <button class="prod-action-btn" title="Quick View">
-                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-                </button>
-              </div>
-            </div>
-            <div class="prod-info">
-              <h5 class="prod-name">Leather Bag</h5>
-              <div class="prod-price">
-                <span class="price-old">$180.00</span>
-                <span class="price-now">$170.00</span>
-              </div>
-              <div class="prod-bottom-actions">
-                <button class="prod-wish-btn" title="Wishlist">
-                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-                <button class="prod-cart-btn">Add To Cart</button>
-                <button class="prod-compare-btn" title="Compare">
-                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="prod-card">
-            <div class="prod-img-wrap">
-              <img src="product-5.jpg" alt="Gold Necklace"/>
-              <div class="prod-hover-actions">
-                <button class="prod-action-btn" title="Quick View">
-                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-                </button>
-              </div>
-            </div>
-            <div class="prod-info">
-              <h5 class="prod-name">Gold Necklace</h5>
-              <div class="prod-price"><span class="price-now">$85.00</span></div>
-              <div class="prod-bottom-actions">
-                <button class="prod-wish-btn" title="Wishlist">
-                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-                <button class="prod-cart-btn">Add To Cart</button>
-                <button class="prod-compare-btn" title="Compare">
-                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 6 -->
-          <div class="prod-card">
-            <div class="prod-img-wrap">
-              <img src="product-6.jpg" alt="Diamond Ring"/>
-              <span class="prod-badge">Sale!</span>
-              <div class="prod-hover-actions">
-                <button class="prod-action-btn" title="Quick View">
-                  <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
-                </button>
-              </div>
-            </div>
-            <div class="prod-info">
-              <h5 class="prod-name">Diamond Ring</h5>
-              <div class="prod-price">
-                <span class="price-old">$320.00</span>
-                <span class="price-now">$250.00</span>
-              </div>
-              <div class="prod-bottom-actions">
-                <button class="prod-wish-btn" title="Wishlist">
-                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-                <button class="prod-cart-btn">Add To Cart</button>
-                <button class="prod-compare-btn" title="Compare">
-                  <svg viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /products-track -->
-      </div><!-- /products-track-outer -->
-
-      <!-- Next Button -->
-      <button class="carousel-nav-btn next-btn" id="productsNext">
-        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-      </button>
-
-    </div><!-- /carousel-wrapper -->
-  </div>
-</section>
+        </div>
+        <button class="carousel-nav-btn next-btn" id="productsNext">
+          <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
 </main>
+
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-main">
     <div class="container">
       <div class="row g-4">
-<!-- Contact Us -->
-<div class="col-12 col-sm-6 col-lg">
-
-  <!-- Logo -->
-  <div class="footer-logo mb-3">
-    <img src="Black-Raven-Horizontal Logo-golden.png" alt="Logo">
-  </div>
-
-  <h6 class="footer-heading">Contact Us</h6>
-
-  <!-- baqi code same rahega -->
-              <div class="footer-icon-wrap">
-                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              </div>
-              <span>NORAURE London Oxford Street<br>012 United Kingdom.</span>
-            </li>
-            <li>
-              <div class="footer-icon-wrap">
-                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              </div>
-              <span>emailnoraure@gmail.com<br>emailsupport@gmail.com</span>
-            </li>
-            <li>
-              <div class="footer-icon-wrap">
-                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-              </div>
-              <span>(+92) 3456 7890<br>(+92) 1234 5678</span>
-            </li>
-          </ul>
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="footer-logo mb-3">
+            <img src="Black-Raven-Horizontal Logo-golden.png" alt="Logo">
+          </div>
+          <h6 class="footer-heading">Contact Us</h6>
+          <div class="footer-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <span>NORAURE London Oxford Street<br>012 United Kingdom.</span>
         </div>
-
-        <!-- Information -->
         <div class="col-12 col-sm-6 col-lg">
           <h6 class="footer-heading">Information</h6>
           <ul class="footer-links">
@@ -975,8 +715,6 @@
             <li><a href="#">Site Map</a></li>
           </ul>
         </div>
-
-        <!-- Our Offers -->
         <div class="col-12 col-sm-6 col-lg">
           <h6 class="footer-heading">Our Offers</h6>
           <ul class="footer-links">
@@ -988,8 +726,6 @@
             <li><a href="#">Delivery &amp; returns</a></li>
           </ul>
         </div>
-
-        <!-- Our Policy -->
         <div class="col-12 col-sm-6 col-lg">
           <h6 class="footer-heading">Our Policy</h6>
           <ul class="footer-links">
@@ -1001,15 +737,12 @@
             <li><a href="#">Legal Notice</a></li>
           </ul>
         </div>
-
-        <!-- Newsletter + Social -->
         <div class="col-12 col-sm-6 col-lg">
           <h6 class="footer-heading">Get Newsletters</h6>
           <div class="footer-newsletter">
             <input type="email" placeholder="Email" class="newsletter-input"/>
             <button class="newsletter-btn">Subscribe</button>
           </div>
-
           <h6 class="footer-heading mt-4">Connect Us</h6>
           <div class="footer-socials">
             <a href="#" class="social-btn social-fb" title="Facebook">
@@ -1029,12 +762,9 @@
             </a>
           </div>
         </div>
-
       </div>
     </div>
   </div>
-
-  <!-- Footer Bottom -->
   <div class="footer-bottom">
     <div class="container">
       <div class="footer-bottom-inner">
@@ -1049,8 +779,8 @@
     </div>
   </div>
 </footer>
-  <!-- Bootstrap JS -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
 <script src="music-player.js"></script>
 </body>
