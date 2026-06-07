@@ -3,6 +3,7 @@
   /* ── CONFIG ── */
   var SRC         = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
   var POPUP_DELAY = 4000;
+  var SAVE_KEY    = '_mp';
 
   /* ── RESTORE SAVED STATE ── */
   var vol       = 0.18;
@@ -11,100 +12,154 @@
   var popShown  = false;
 
   try {
-    var s = JSON.parse(localStorage.getItem('_mp') || '{}');
+    var s = JSON.parse(localStorage.getItem(SAVE_KEY) || '{}');
     if (s.vol     != null) vol       = s.vol;
     if (s.muted   != null) isMuted   = s.muted;
     if (s.time    != null) savedTime = s.time;
     if (s.popShown)        popShown  = true;
   } catch(e){}
 
-  function save() {
-    try {
-      localStorage.setItem('_mp', JSON.stringify({
-        vol: audio.volume, muted: audio.muted,
-        time: audio.currentTime, popShown: popShown
-      }));
-    } catch(e){}
-  }
-
-  /* ── AUDIO ── */
+  /* ── AUDIO SETUP ── */
   var audio     = new Audio(SRC);
   audio.loop    = true;
   audio.volume  = vol;
   audio.muted   = isMuted;
   audio.preload = 'auto';
 
-  if (savedTime > 0) {
-    audio.addEventListener('canplay', function() {
-      audio.currentTime = savedTime;
-    }, { once: true });
+  /* ── STATE ── */
+  var going        = false;   // successfully playing at least once
+  var gestureReady = false;   // gesture listener attached
+
+  /* ── SAVE every 1.5s ── */
+  function save() {
+    try {
+      localStorage.setItem(SAVE_KEY, JSON.stringify({
+        vol      : audio.volume,
+        muted    : audio.muted,
+        time     : audio.currentTime,
+        popShown : popShown
+      }));
+    } catch(e){}
   }
-
   setInterval(save, 1500);
+  window.addEventListener('pagehide', save);   // save on tab close / navigate
+  window.addEventListener('beforeunload', save);
 
-  /* ── PLAY ── */
-  var going = false;
-
-  function play() {
-    if (going) return;
-    var p = audio.play();
-    if (p && p.then) {
-      p.then(function(){ going = true; }).catch(function(){});
-    } else {
-      going = true;
+  /* ── RESUME POSITION ── */
+  function resumeTime() {
+    if (savedTime > 0) {
+      // canplay ke bad set karo
+      if (audio.readyState >= 3) {
+        audio.currentTime = savedTime;
+        savedTime = 0;
+      } else {
+        audio.addEventListener('canplay', function setT() {
+          audio.removeEventListener('canplay', setT);
+          audio.currentTime = savedTime;
+          savedTime = 0;
+        });
+      }
     }
   }
 
-  /* ── TRY AUTOPLAY, THEN LISTEN FOR ANY GESTURE ── */
+  /* ── CORE PLAY ── */
   function tryPlay() {
+    if (going) return;
+    resumeTime();
     var p = audio.play();
     if (p && p.then) {
       p.then(function () {
         going = true;
+        attachRestartListeners();
       }).catch(function () {
-        /* autoplay blocked → attach gesture listeners */
-        var tried = false;
-        function gesture() {
-          if (tried) return;
-          tried = true;
-          play();
-          ['click','mousedown','keydown','touchstart','touchend',
-           'scroll','wheel','pointerdown','pointermove']
-          .forEach(function(ev){
-            document.removeEventListener(ev, gesture, true);
-            window.removeEventListener(ev, gesture, true);
-          });
-        }
-        ['click','mousedown','keydown','touchstart','touchend',
-         'scroll','wheel','pointerdown','pointermove']
-        .forEach(function(ev){
-          document.addEventListener(ev, gesture, { capture:true, passive:true });
-          window.addEventListener(ev, gesture, { capture:true, passive:true });
-        });
+        // autoplay blocked → wait for first user gesture
+        if (!gestureReady) attachGestureListeners();
       });
     } else {
       going = true;
+      attachRestartListeners();
     }
   }
 
-  /* start immediately, retry on load */
-  tryPlay();
-  window.addEventListener('load', function(){ if (!going) tryPlay(); });
+  /* ── GESTURE UNLOCK ── */
+  var GESTURES = ['click','mousedown','keydown','touchstart',
+                  'touchend','scroll','wheel','pointerdown'];
 
-  /* resume on tab focus */
-  document.addEventListener('visibilitychange', function(){
-    if (!document.hidden && audio.paused && going) audio.play().catch(function(){});
-  });
+  function attachGestureListeners() {
+    gestureReady = true;
+    var tried = false;
+    function onGesture() {
+      if (tried) return;
+      tried = true;
+      GESTURES.forEach(function(ev) {
+        document.removeEventListener(ev, onGesture, true);
+      });
+      resumeTime();
+      audio.play().then(function() {
+        going = true;
+        attachRestartListeners();
+      }).catch(function(){});
+    }
+    GESTURES.forEach(function(ev) {
+      document.addEventListener(ev, onGesture, { capture: true, passive: true });
+    });
+  }
 
-  /* restart if paused by browser */
-  audio.addEventListener('pause', function(){
-    if (going) setTimeout(function(){ if (audio.paused) audio.play().catch(function(){}); }, 300);
+  /* ── KEEP ALIVE: restart if browser pauses ── */
+  function attachRestartListeners() {
+    // Tab becomes visible again
+    document.addEventListener('visibilitychange', function() {
+      if (!document.hidden && audio.paused && going) {
+        audio.play().catch(function(){});
+      }
+    });
+
+    // Browser ke pause event pr dobara play
+    audio.addEventListener('pause', function() {
+      if (going) {
+        setTimeout(function() {
+          if (audio.paused) audio.play().catch(function(){});
+        }, 400);
+      }
+    });
+
+    // Network issue se rukne pr retry
+    audio.addEventListener('stalled', function() {
+      setTimeout(function() {
+        if (audio.paused) audio.play().catch(function(){});
+      }, 1000);
+    });
+
+    audio.addEventListener('error', function() {
+      setTimeout(function() {
+        audio.load();
+        if (savedTime > 0) audio.currentTime = savedTime;
+        audio.play().catch(function(){});
+      }, 2000);
+    });
+
+    // Window focus — tab pe wapis aao to resume
+    window.addEventListener('focus', function() {
+      if (audio.paused && going) audio.play().catch(function(){});
+    });
+  }
+
+  /* ── START ── */
+  // DOM ready hone par try karo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', tryPlay);
+  } else {
+    tryPlay();
+  }
+  // Page fully load hone par bhi try (fallback)
+  window.addEventListener('load', function() {
+    if (!going) tryPlay();
   });
 
   /* ── VOLUME / MUTE ── */
   function setVol(v) {
-    audio.volume  = v;
-    audio.muted   = (v === 0);
+    audio.volume = v;
+    audio.muted  = (v === 0);
     renderUI();
     save();
   }
@@ -206,7 +261,7 @@
 
   /* ── DOM ── */
   var btn = document.createElement('button');
-  btn.id  = 'mp-btn';
+  btn.id    = 'mp-btn';
   btn.title = 'Music Player';
   btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9v5a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H5.07A7 7 0 0 1 12 5a7 7 0 0 1 6.93 7H17a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-5a9 9 0 0 0-9-9z"/></svg>';
 
@@ -235,7 +290,7 @@
   document.body.appendChild(btn);
   document.body.appendChild(pop);
 
-  /* ── RENDER ── */
+  /* ── RENDER UI ── */
   function renderUI() {
     var mb = document.getElementById('mp-mute');
     if (mb) {
@@ -258,35 +313,43 @@
   }
 
   /* ── EVENTS ── */
-  btn.addEventListener('click', function(e){ e.stopPropagation(); pop.classList.toggle('open'); });
-
-  document.getElementById('mp-close').addEventListener('click', function(e){
-    e.stopPropagation(); pop.classList.remove('open');
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    pop.classList.toggle('open');
+    // Button click = first gesture → play if not started
+    if (!going) tryPlay();
   });
 
-  document.getElementById('mp-mute').addEventListener('click', function(e){
-    e.stopPropagation(); toggleMute();
+  document.getElementById('mp-close').addEventListener('click', function(e) {
+    e.stopPropagation();
+    pop.classList.remove('open');
   });
 
-  document.getElementById('mp-slider').addEventListener('input', function(e){
-    e.stopPropagation(); setVol(parseInt(this.value) / 100);
+  document.getElementById('mp-mute').addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMute();
   });
 
-  document.addEventListener('click', function(e){
+  document.getElementById('mp-slider').addEventListener('input', function(e) {
+    e.stopPropagation();
+    setVol(parseInt(this.value) / 100);
+  });
+
+  document.addEventListener('click', function(e) {
     if (!pop.contains(e.target) && e.target !== btn) pop.classList.remove('open');
   });
 
-  document.addEventListener('keydown', function(e){
+  document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') pop.classList.remove('open');
   });
 
   /* ── POPUP FIRST VISIT ── */
   if (!popShown) {
-    setTimeout(function(){
+    setTimeout(function() {
       pop.classList.add('open');
       popShown = true;
       save();
-      setTimeout(function(){ pop.classList.remove('open'); }, 6000);
+      setTimeout(function() { pop.classList.remove('open'); }, 6000);
     }, POPUP_DELAY);
   }
 

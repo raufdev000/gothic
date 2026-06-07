@@ -93,9 +93,10 @@ body{
   padding:12px 0;
 }
 .logo {
-    height: 50px;      /* apni requirement ke mutabiq */
-    width: 120px;
+    height: 55px;      /* apni requirement ke mutabiq */
+    width: 90px;
     display: block;
+    margin-top: 17%;
 }
 .logo-placeholder{
   width:130px;
@@ -442,7 +443,7 @@ body{
 }
 
 /* ── SLIDE IMAGES ── */
-.slide-1 .slide-bg { background-color:#1a0808;opacity: 50%; background-image:url('website-banner-heroV3b.jpg.webp'); }
+.slide-1 .slide-bg { background-color:#1a0808;opacity: 50%; background-image:url('website-banner.webp'); }
 .slide-2 .slide-bg { background-color:#080d1a; opacity: 50%; background-image:url('website-banner-hero2\ v2.jpg.webp'); }
 
 
@@ -1625,7 +1626,7 @@ body{
 
 /* Facebook — filled icon needs fill not stroke */
 .social-fb svg { fill: #aaa; stroke: none; }
-.social-fb:hover { background: #C8922A border-color:  #C8922A; }
+.social-fb:hover { background: #C8922A; border-color:  #C8922A; }
 .social-fb:hover svg { fill: #fff; }
 
 .social-tw:hover { background: #C8922A; border-color:  #C8922A; }
