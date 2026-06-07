@@ -445,7 +445,6 @@ body{
 /* ── SLIDE IMAGES ── */
 .slide-1 .slide-bg {
   background-color: #1a0808;
-  opacity: 50%;
   background-image: url('website-banner.webp');
   background-size: cover;
   background-position: center; /* large screen — theek hai */
@@ -457,7 +456,7 @@ body{
     background-position: right center;
   }
 }
-.slide-2 .slide-bg { background-color:#080d1a; opacity: 50%; background-image:url('website-banner-hero2\ v2.jpg.webp'); }
+.slide-2 .slide-bg { background-color:#080d1a; background-image:url('website-banner-hero2\ v2.jpg.webp'); }
 
 
 /* ── SLIDE CONTENT ── */
