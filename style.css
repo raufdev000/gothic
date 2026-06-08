@@ -456,8 +456,24 @@ body{
     background-position: right center;
   }
 }
-.slide-2 .slide-bg { background-color:#080d1a; background-image:url('website-banner-hero2\ v2.jpg.webp'); }
+.slide-2 .slide-bg { background-color:#080d1a; opacity: 75%; background-image:url('website-banner-hero-C2.jpg.webp'); }
 
+/* Small screen — sirf right side dikhao */
+@media (max-width: 478px) {
+  .slide-2 .slide-bg {
+    background-position: top;
+  
+  
+  }
+}
+
+/* Small screen — sirf right side dikhao */
+@media (min-width: 768px) {
+  .slide-2 .slide-bg {
+    background-position: top;
+    top: 5%;
+  }
+}
 
 /* ── SLIDE CONTENT ── */
 .slide-content {
