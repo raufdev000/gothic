@@ -334,15 +334,18 @@ body{
 /* ── MOBILE NAV FIX ── */
 @media (max-width: 991px) {
   .navbar {
-    top: 36px;
+    top: 28px;
   }
 
-  /* Collapsed menu — dark background */
   #navMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
     background: rgba(5,5,5,0.98);
     border-top: 1px solid rgba(255,255,255,0.07);
     padding: 10px 0 16px;
-    margin-top: 10px;
+    margin-top: 0;
   }
 
   .navbar-nav .nav-link {
@@ -355,14 +358,14 @@ body{
     border-bottom: none;
   }
 
-  /* Active underline — mobile pe side bar se dikhao */
+  /* Active — mobile pe yellow/gold hatao */
   .navbar-nav .nav-link.active {
-    color: #C8922A !important;
-    border-left: 2px solid #C8922A;
+    color: #fff !important;
+    border-left: 2px solid rgba(255,255,255,0.3);
     padding-left: 18px !important;
+    font-weight: 600;
   }
 
-  /* Underline animation mobile pe off */
   .navbar-nav .nav-link::after {
     display: none;
   }
@@ -371,18 +374,43 @@ body{
     gap: 14px;
   }
 }
-
 @media (max-width: 576px) {
   .top-bar {
-    padding: 8px 16px;
+    padding: 2px 10px;
   }
 
   .navbar {
-    padding: 12px 0;
+    padding: 4px 0;
+    top: 28px;
   }
 
   .nav-right-icons {
     gap: 12px;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 7px 20px !important;
+  }
+
+  .logo {
+    height: 46px;
+  }
+}
+@media (max-width: 991px) {
+  .navbar-nav .nav-link.active {
+    color: #fff !important;
+    border-left: none !important;
+    padding-left: 20px !important;
+  }
+
+  .navbar-nav .nav-link.active::after {
+    display: block !important;
+    width: 46px !important;
+    height: 1px !important;
+    background: #C8922A !important;
+    bottom: 2px;
+    left: 20px;
+    transform: none;
   }
 }
 /* ════════════════════════════

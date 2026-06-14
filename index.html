@@ -10,6 +10,127 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Slide content — left align hatao, center rakho */
+.slide-content {
+  text-align: center;
+  padding: 20px 40px;
+}
+
+/* Brand name upar */
+.slide-brand {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(10px, 1.4vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #C8922A;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.carousel-item.active .slide-brand {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .15s;
+}
+
+/* Italic sub-heading */
+.slide-italic {
+  font-family: 'Georgia', serif;
+  font-size: clamp(20px, 4vw, 48px);
+  font-style: italic;
+  font-weight: 400;
+  color: #C8922A;
+  line-height: 1.1;
+  margin-top: -8px;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.carousel-item.active .slide-italic {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .70s;
+}
+
+/* 2 buttons wrapper */
+.slide-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* Primary filled button */
+.slide-btn-primary {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(11px, 1.2vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  background: #C8922A;
+  border: 2px solid #C8922A;
+  padding: clamp(12px, 1.4vh, 15px) clamp(28px, 4vw, 50px);
+  border-radius: 4px;
+  transition: background .3s, color .3s;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease, background .3s, color .3s;
+}
+.slide-btn-primary:hover { background: #a87420; border-color: #a87420; }
+.carousel-item.active .slide-btn-primary {
+  opacity: 1; transform: translateY(0); transition-delay: .95s;
+}
+
+/* Secondary outline button */
+.slide-btn-secondary {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(11px, 1.2vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.6);
+  padding: clamp(12px, 1.4vh, 15px) clamp(28px, 4vw, 50px);
+  border-radius: 4px;
+  transition: background .3s, border-color .3s;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease, background .3s;
+}
+.slide-btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+.carousel-item.active .slide-btn-secondary {
+  opacity: 1; transform: translateY(0); transition-delay: 1.1s;
+}
+
+/* Carousel dots */
+.carousel-indicators {
+  display: flex !important;
+  bottom: 20px;
+}
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  border: none;
+  margin: 0 5px;
+  transition: background .3s;
+}
+.carousel-indicators .active {
+  background: #C8922A;
+}
+  </style>
 </head>
 <body>
 <header>
@@ -27,10 +148,6 @@
       <a href="#" class="text-decoration-none">
         <img src="Black-Raven-Logo-Icon.png" alt="Logo" class="logo">
       </a>
-      <button class="navbar-toggler" type="button"
-        data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse justify-content-center" id="navMenu">
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -50,14 +167,19 @@
           </li>
         </ul>
       </div>
-      <div class="nav-right-icons">
-        <a href="#" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></a>
-        <a href="#" style="position:relative;">
-          <i class="fa-solid fa-cart-shopping"></i>
-          <span class="cart-badge">2</span>
-        </a>
-      </div>
+    <div class="nav-right-icons">
+  <a href="#" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></a>
+  <a href="#" style="position:relative;">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span class="cart-badge">2</span>
+  </a>
+</div>
+<button class="navbar-toggler" type="button"
+  data-bs-toggle="collapse" data-bs-target="#navMenu">
+  <span class="navbar-toggler-icon"></span>
+</button>
     </div>
+    
   </nav>
 </header>
 
@@ -78,27 +200,42 @@
 <main>
   <!-- HERO CAROUSEL -->
   <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-indicators">
+  <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+  <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+</div>
     <div class="carousel-inner">
-      <div class="carousel-item active slide-1">
-        <div class="slide-bg"></div>
-        <div class="slide-overlay"></div>
-        <div class="slide-content">
-          <p class="slide-tag">new collection</p>
-          <h1 class="slide-heading">Women's<br>Fashion</h1>
-          <p class="slide-sub">Save Up To 40% Off</p>
-          <a href="#" class="slide-btn">Shop Now</a>
-        </div>
-      </div>
-      <div class="carousel-item slide-2">
-        <div class="slide-bg"></div>
-        <div class="slide-overlay"></div>
-        <div class="slide-content">
-          <p class="slide-tag">exclusive deals</p>
-          <h1 class="slide-heading">Women's<br>Collection</h1>
-          <p class="slide-sub">New Arrivals This Season</p>
-          <a href="#" class="slide-btn">Explore Now</a>
-        </div>
-      </div>
+   <div class="carousel-item active slide-1">
+  <div class="slide-bg"></div>
+  <div class="slide-overlay"></div>
+  <div class="slide-content">
+    <p class="slide-brand">Royal Raven</p>
+    <p class="slide-tag">new collection</p>
+    <h1 class="slide-heading">Elegance</h1>
+    <p class="slide-italic">Beyond Fashion</p>
+    <p class="slide-sub">New Arrivals This Season</p>
+    <div class="slide-btns">
+      <a href="#" class="slide-btn-primary">Shop Collection</a>
+      <a href="#" class="slide-btn-secondary">New Arrivals</a>
+    </div>
+  </div>
+</div>
+
+<div class="carousel-item slide-2">
+  <div class="slide-bg"></div>
+  <div class="slide-overlay"></div>
+  <div class="slide-content">
+    <p class="slide-brand">Royal Raven</p>
+    <p class="slide-tag">exclusive deals</p>
+    <h1 class="slide-heading">Women's</h1>
+    <p class="slide-italic">Collection</p>
+    <p class="slide-sub">New Arrivals This Season</p>
+    <div class="slide-btns">
+      <a href="#" class="slide-btn-primary">Explore Now</a>
+      <a href="#" class="slide-btn-secondary">View All</a>
+    </div>
+  </div>
+</div>
       
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
