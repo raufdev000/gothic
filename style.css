@@ -475,7 +475,7 @@ body{
   background-color: #1a0808;
   background-image: url('website-banner.webp');
   background-size: cover;
-  background-position: center; /* large screen — theek hai */
+  background-position: center ; /* large screen — theek hai */
 }
 
 /* Small screen — sirf right side dikhao */
@@ -797,9 +797,9 @@ body{
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('slider-1.jpg');
+  background-image: url('slider-3.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: right;
   opacity: 0.18;
   z-index: 0;
 }
@@ -1065,9 +1065,9 @@ body{
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('download\ \(1\).jpg');
+  background-image: url('website-banner-hero-C3e.jpg\ \(1\).webp');
   background-size: cover;
-  background-position: center;
+  background-position: top;
   opacity: 0.25;
   z-index: 0;
 }

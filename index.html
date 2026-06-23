@@ -11,6 +11,286 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="style.css">
   <style>
+
+  :root{
+    --cw-bg:#ece7e0;
+    --cw-ink:#1c1a17;
+    --cw-muted:#8c8478;
+    --cw-border:#d6cfc4;
+    --cw-card-bg:#dcd5c9;
+    --cw-white:#f7f5f1;
+    --cw-ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  .cw-section{
+    background:var(--cw-bg);
+    font-family:'Jost', sans-serif;
+    padding:96px 0 88px;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(32px);
+    transition:opacity 0.9s cubic-bezier(.16,1,.3,1), transform 0.9s cubic-bezier(.16,1,.3,1);
+  }
+
+  .cw-section.cw-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ===== Header ===== */
+
+  .cw-header{
+    width:90%;
+    max-width:900px;
+    margin:0 auto 64px;
+    text-align:center;
+  }
+
+  .cw-label{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:16px;
+    letter-spacing:0.02em;
+    color:var(--cw-muted);
+    margin-bottom:18px;
+  }
+
+  .cw-heading{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    font-size:clamp(36px, 5vw, 58px);
+    line-height:1.12;
+    color:var(--cw-ink);
+    margin-bottom:24px;
+  }
+
+  .cw-heading em{
+    font-style:italic;
+    font-weight:500;
+  }
+
+  .cw-subheading{
+    font-family:'Jost', sans-serif;
+    font-weight:400;
+    font: size 18px;
+    line-height:1.7;
+    color:var(--cw-muted);
+    max-width:540px;
+    margin:0 auto;
+  }
+
+  /* ===== Carousel shell ===== */
+
+  .cw-carousel{
+    position:relative;
+  }
+
+  .cw-track-viewport{
+    overflow:hidden;
+    width:100%;
+    cursor:grab;
+  }
+
+  .cw-track-viewport.cw-dragging{
+    cursor:grabbing;
+  }
+
+  .cw-track{
+    display:flex;
+    will-change:transform;
+  }
+
+  .cw-track.cw-no-transition{
+    transition:none !important;
+  }
+
+  /* ===== Card ===== */
+
+  .cw-card{
+    flex:0 0 auto;
+    width:280px;
+    margin-right:28px;
+    user-select:none;
+    -webkit-user-select:none;
+    opacity:0;
+    transform:translateY(28px) scale(0.96);
+    transition:opacity 0.7s ease, transform 0.55s var(--cw-ease);
+  }
+
+  .cw-card.cw-visible{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+
+  .cw-card-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:3/4.4;
+    border-radius:6px;
+    overflow:hidden;
+    border:1px solid var(--cw-border);
+    background:var(--cw-card-bg);
+    transition:transform 0.5s var(--cw-ease), border-color 0.5s ease;
+  }
+
+  /* Fallback for engines without aspect-ratio support: padding-top hack */
+  @supports not (aspect-ratio: 1/1){
+    .cw-card-frame{
+      height:0;
+      padding-top:146.6%;
+    }
+  }
+
+  .image-placeholder{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(135deg, var(--cw-card-bg) 0%, #cfc6b8 100%);
+    transition:transform 0.6s var(--cw-ease);
+  }
+
+  .cw-card img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.6s var(--cw-ease);
+  }
+
+  .cw-card-frame::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top, rgba(20,17,13,0.32) 0%, rgba(20,17,13,0) 38%);
+    pointer-events:none;
+  }
+
+  .cw-card-meta{
+    padding:18px 2px 0;
+  }
+
+  .cw-card-label{
+    font-family:'Jost', sans-serif;
+    font-weight:500;
+    font-size:10.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--cw-muted);
+    margin-bottom:6px;
+  }
+
+  .cw-card-title{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:19px;
+    color:var(--cw-ink);
+  }
+
+  /* Hover (desktop, fine pointer only) */
+  @media (hover:hover) and (pointer:fine){
+    .cw-card:hover .cw-card-frame{
+      transform:translateY(-10px);
+    }
+    .cw-card:hover .image-placeholder,
+    .cw-card:hover img{
+      transform:scale(1.05);
+    }
+  }
+
+  /* Active / center card emphasis */
+  .cw-card.cw-active .cw-card-frame{
+    transform:scale(1.045);
+    border-color:var(--cw-ink);
+  }
+
+  @media (hover:hover) and (pointer:fine){
+    .cw-card.cw-active:hover .cw-card-frame{
+      transform:translateY(-10px) scale(1.045);
+    }
+  }
+
+  /* ===== Arrows ===== */
+
+  .cw-arrow{
+    position:absolute;
+    top:38%;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:1px solid var(--cw-ink);
+    background:var(--cw-bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:5;
+    transition:background 0.35s ease, transform 0.35s ease, opacity 0.35s ease;
+  }
+
+  .cw-arrow:hover{
+    background:var(--cw-ink);
+    transform:translateY(-50%) scale(1.06);
+  }
+
+  .cw-arrow:hover svg{ stroke:var(--cw-white); }
+
+  .cw-arrow svg{
+    width:18px;
+    height:18px;
+    stroke:var(--cw-ink);
+    fill:none;
+    stroke-width:1.4;
+    transition:stroke 0.35s ease;
+  }
+
+  .cw-arrow-prev{ left:16px; transform:translateY(-50%); }
+  .cw-arrow-next{ right:16px; transform:translateY(-50%); }
+
+  .cw-arrow:focus-visible{
+    outline:2px solid var(--cw-ink);
+    outline-offset:3px;
+  }
+
+  @media (max-width: 760px){
+    .cw-arrow{ display:none; }
+  }
+
+  /* ===== Responsive card sizing =====
+     Desktop: ~4 visible | Tablet: ~3 visible | Mobile: ~1.2-1.5 visible */
+
+  @media (max-width: 1180px){
+    .cw-card{ width:248px; margin-right:24px; }
+  }
+
+  @media (max-width: 900px){
+    .cw-card{ width:230px; margin-right:20px; }
+  }
+
+  @media (max-width: 760px){
+    .cw-section{ padding:72px 0 64px; }
+    .cw-header{ margin-bottom:44px; }
+    .cw-card{ width:210px; margin-right:16px; }
+  }
+
+  @media (max-width: 520px){
+    .cw-card{ width:62vw; margin-right:14px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cw-section, .cw-card, .cw-card-frame, .image-placeholder, .cw-card img{
+      transition:none !important;
+    }
+    .cw-card:hover .cw-card-frame{ transform:none; }
+  }
+
+</style>
+  <style>
     /* Slide content — left align hatao, center rakho */
 .slide-content {
   text-align: center;
@@ -131,6 +411,7 @@
   background: #C8922A;
 }
   </style>
+
 </head>
 <body>
 <header>
@@ -246,52 +527,29 @@
     </button>
   </div>
 
-  <!-- FASHION PROMO SECTION -->
-  <section class="fashion-promos py-5">
-    <div class="container-fluid px-lg-5">
-      <div class="row g-4 align-items-stretch">
-        <div class="col-lg-4">
-          <div class="promo-card large-card">
-            <div class="promo-image">
-              <img src="img-1.webp" alt="">
-            </div>
-            <div class="promo-content">
-              <p class="promo-tag">NEW DESIGN</p>
-              <h2 class="promo-title">SEND HER YOUR LOVE</h2>
-              <a href="#" class="promo-btn">GET IT NOW</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="promo-card text-card mb-4">
-            <div class="promo-content center-content">
-              <p class="promo-tag">NEW DESIGN</p>
-              <h2 class="promo-title">SEND HER YOUR LOVE</h2>
-              <a href="#" class="promo-btn">GET IT NOW</a>
-            </div>
-          </div>
-          <div class="promo-card image-card">
-            <div class="promo-image full-image">
-              <img src="img-2.webp" alt="">
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="promo-card tall-card">
-            <div class="promo-image">
-              <img src="img3.jpg" alt="">
-            </div>
-            <div class="promo-overlay-content">
-              <p class="promo-tag">MEN'S FASHION</p>
-              <h2 class="promo-title">MID SEASON SALE</h2>
-              <a href="#" class="promo-btn">VIEW COLLECTION</a>
-            </div>
-          </div>
-        </div>
+<section class="cw-section" id="cw-section">
+
+  <div class="cw-header">
+
+    <h2 class="cw-heading">Shop by Category.</em></h2>
+    <p class="cw-subheading">Contemporary silhouettes, refined craftsmanship, and effortless sophistication.</p>
+  </div>
+  <div class="cw-carousel">
+    <button class="cw-arrow cw-arrow-prev" type="button" aria-label="Previous">
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <button class="cw-arrow cw-arrow-next" type="button" aria-label="Next">
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <div class="cw-track-viewport" id="cw-viewport">
+      <div class="cw-track" id="cw-track">
+        <!-- 8 cards injected by JS (with clones for infinite loop) -->
       </div>
     </div>
-  </section>
+  </div>
 
+</section>
   <!-- Best Products Section — Clothes Only -->
   <section class="best-products-section">
     <div class="container-fluid px-4 px-md-5">
@@ -908,7 +1166,291 @@
     </div>
   </div>
 </footer>
+<script>
+  (function () {
+  // ─────────────────────────────────────────────────────────────
+  // CARD DATA — Luxury Pakistani Ethnic Fashion Collection
+  // Replace each `image` URL with your own licensed product photo
+  // (portrait orientation recommended, e.g. 800×1100).
+  // ─────────────────────────────────────────────────────────────
+  var CARD_DATA = [
+    {
+      label: 'Sharara Edit',
+      title: 'Royal Ivory Sharara',
+      // Pakistani bridal ivory sharara, intricate silver embroidery, soft beige background, premium campaign style.
+      image: 'royalivory.webp'
+    },
+    {
+      label: 'Festive Wear',
+      title: 'Emerald Silk Gharara',
+      // Deep emerald gharara with gold embellishments, luxury editorial fashion photography.
+      image: 'emeraldsilk.webp'
+    },
+    {
+      label: 'Eid Collection',
+      title: 'Rose Gold Anarkali',
+      // Flowing rose gold anarkali with traditional embroidery, premium Pakistani couture aesthetic.
+      image: 'Rose Gold Anarkal.jpg'
+    },
+    {
+      label: 'Wedding Edit',
+      title: 'Crimson Bridal Lehenga',
+      // Rich red bridal lehenga, heavy handcrafted detailing, luxury Pakistani wedding campaign.
+      image: 'Crimson Bridal Lehenga.webp'
+    },
+    {
+      label: 'Luxury Pret',
+      title: 'Midnight Black Kaftan',
+      // Modern black kaftan with subtle embellishments, minimalist luxury fashion photography.
+      image: 'Midnight Black Kaftan.webp'
+    },
+    {
+      label: 'Contemporary',
+      title: 'Ivory Long Shirt Set',
+      // Elegant ivory long shirt with straight trousers, sophisticated Pakistani designer wear.
+      image: 'Ivory Long Shirt Set.webp'
+    },
+    {
+      label: 'Signature Collection',
+      title: 'Powder Blue Organza',
+      // Powder blue organza ensemble with delicate embroidery, luxury editorial photoshoot.
+      image: 'Powder Blue Organza.webp'
+    },
+    {
+      label: 'Evening Wear',
+      title: 'Champagne Silk Ensemble',
+      // Champagne silk Pakistani formal dress, premium luxury campaign photography.
+      image: 'champagne.jpg'
+    }
+  ];
 
+  function cardHTML(item) {
+    // If an image URL is present, render it; otherwise fall back to the
+    // original empty .image-placeholder so existing CSS still applies.
+    var media = item.image
+      ? '<img class="image-placeholder" src="' + item.image + '" alt="' + item.title +
+        '" draggable="false" onerror="this.removeAttribute(\'src\');this.classList.add(\'image-fallback\');">'
+      : '<div class="image-placeholder"></div>';
+
+    return (
+      '<div class="cw-card">' +
+        '<div class="cw-card-frame">' +
+          media +
+        '</div>' +
+        '<div class="cw-card-meta">' +
+          '<p class="cw-card-label">' + item.label + '</p>' +
+          '<p class="cw-card-title">' + item.title + '</p>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  var track = document.getElementById('cw-track');
+  var viewport = document.getElementById('cw-viewport');
+  var section = document.getElementById('cw-section');
+
+  // Build track: [clone-set][real-set][clone-set] for seamless infinite loop
+  var realHTML = CARD_DATA.map(cardHTML).join('');
+  track.innerHTML = realHTML + realHTML + realHTML;
+
+  var allCards = Array.prototype.slice.call(track.querySelectorAll('.cw-card'));
+  var setLength = CARD_DATA.length;
+
+  /* ---- Reveal on scroll ---- */
+  if (!('IntersectionObserver' in window)) {
+    section.classList.add('cw-visible');
+    allCards.forEach(function (c) { c.classList.add('cw-visible'); });
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('cw-visible');
+          var middleSet = allCards.slice(setLength, setLength * 2);
+          middleSet.forEach(function (card, i) {
+            setTimeout(function () { card.classList.add('cw-visible'); }, i * 90);
+          });
+          // edge clone sets show immediately (no stagger) so there are no blank gaps during drag/loop
+          allCards.forEach(function (c) {
+            if (middleSet.indexOf(c) === -1) { c.classList.add('cw-visible'); }
+          });
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealObserver.observe(section);
+  }
+
+  /* ---- Carousel mechanics ---- */
+  var cardWidth = 0;
+  var gap = 0;
+  var step = 0;
+  var currentIndex = setLength; // start in the middle (real) set
+  var isDragging = false;
+  var dragMoved = false;
+  var dragStartX = 0;
+  var dragStartOffset = 0;
+  var currentOffset = 0;
+  var autoplaySpeed = 1; // px per frame, continuous drift
+  var rafId = null;
+  var isPaused = false;
+  var resumeTimer = null;
+
+  function measure() {
+    var sample = allCards[0];
+    var rect = sample.getBoundingClientRect();
+    var styles = window.getComputedStyle(sample);
+    cardWidth = rect.width;
+    gap = parseFloat(styles.marginRight) || 0;
+    step = cardWidth + gap;
+  }
+
+  function setOffset(x) {
+    track.style.transform = 'translateX(' + x + 'px)';
+    currentOffset = x;
+  }
+
+  function jumpToIndex(index, animate) {
+    var target = -(index * step);
+    if (animate) {
+      track.style.transition = 'transform 0.6s cubic-bezier(.22,.61,.36,1)';
+    } else {
+      track.classList.add('cw-no-transition');
+    }
+    setOffset(target);
+    currentIndex = index;
+    updateActiveCard();
+    if (!animate) {
+      requestAnimationFrame(function () { track.classList.remove('cw-no-transition'); });
+    }
+  }
+
+  function updateActiveCard() {
+    var viewportWidth = viewport.getBoundingClientRect().width;
+    var centerX = -currentOffset + viewportWidth / 2;
+    var closest = null;
+    var closestDist = Infinity;
+    allCards.forEach(function (card) {
+      var cardCenter = card.offsetLeft + cardWidth / 2;
+      var dist = Math.abs(cardCenter - centerX);
+      if (dist < closestDist) { closestDist = dist; closest = card; }
+    });
+    allCards.forEach(function (c) { c.classList.remove('cw-active'); });
+    if (closest) { closest.classList.add('cw-active'); }
+  }
+
+  function normalizeLoop() {
+    var original = currentIndex;
+    while (currentIndex >= setLength * 2) { currentIndex -= setLength; }
+    while (currentIndex < setLength) { currentIndex += setLength; }
+    if (currentIndex !== original) { jumpToIndex(currentIndex, false); }
+  }
+
+  function pauseAutoplayBriefly() {
+    isPaused = true;
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(function () { isPaused = false; }, 2600);
+  }
+
+  function goNext() {
+    pauseAutoplayBriefly();
+    currentIndex += 1;
+    normalizeLoop();
+    jumpToIndex(currentIndex, true);
+  }
+
+  function goPrev() {
+    pauseAutoplayBriefly();
+    currentIndex -= 1;
+    normalizeLoop();
+    jumpToIndex(currentIndex, true);
+  }
+
+  /* ---- Continuous autoplay drift ---- */
+  function autoplayTick() {
+    if (!isPaused && !isDragging && step > 0) {
+      var next = currentOffset - autoplaySpeed;
+      track.style.transition = 'none';
+      var totalSetWidth = setLength * step;
+      // wrap seamlessly once we've drifted a full set-width past the middle anchor
+      if (Math.abs(next) >= totalSetWidth * 2) {
+        next += totalSetWidth;
+      }
+      setOffset(next);
+      currentIndex = Math.round(-currentOffset / step);
+    }
+    rafId = requestAnimationFrame(autoplayTick);
+  }
+
+  /* ---- Drag / swipe support ---- */
+  function onPointerDown(e) {
+    isDragging = true;
+    dragMoved = false;
+    isPaused = true;
+    viewport.classList.add('cw-dragging');
+    dragStartX = (e.touches ? e.touches[0].clientX : e.clientX);
+    dragStartOffset = currentOffset;
+    track.style.transition = 'none';
+  }
+
+  function onPointerMove(e) {
+    if (!isDragging) return;
+    var x = (e.touches ? e.touches[0].clientX : e.clientX);
+    var delta = x - dragStartX;
+    if (Math.abs(delta) > 3) { dragMoved = true; }
+    setOffset(dragStartOffset + delta);
+  }
+
+  function onPointerUp() {
+    if (!isDragging) return;
+    isDragging = false;
+    viewport.classList.remove('cw-dragging');
+    currentIndex = Math.round(-currentOffset / step);
+    normalizeLoop();
+    jumpToIndex(currentIndex, true);
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(function () { isPaused = false; }, 2600);
+  }
+
+  viewport.addEventListener('mousedown', onPointerDown);
+  window.addEventListener('mousemove', onPointerMove);
+  window.addEventListener('mouseup', onPointerUp);
+  viewport.addEventListener('touchstart', onPointerDown, { passive: true });
+  viewport.addEventListener('touchmove', onPointerMove, { passive: true });
+  viewport.addEventListener('touchend', onPointerUp);
+
+  // prevent accidental click-through on cards right after a drag
+  viewport.addEventListener('click', function (e) {
+    if (dragMoved) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
+
+  viewport.addEventListener('mouseenter', function () { isPaused = true; });
+  viewport.addEventListener('mouseleave', function () {
+    if (!isDragging) { isPaused = false; }
+  });
+
+  document.querySelector('.cw-arrow-prev').addEventListener('click', goPrev);
+  document.querySelector('.cw-arrow-next').addEventListener('click', goNext);
+
+  /* ---- Init ---- */
+  function init() {
+    measure();
+    jumpToIndex(currentIndex, false);
+    if (rafId) { cancelAnimationFrame(rafId); }
+    rafId = requestAnimationFrame(autoplayTick);
+  }
+
+  window.addEventListener('resize', function () {
+    measure();
+    jumpToIndex(currentIndex, false);
+  });
+
+  if (document.readyState === 'complete') {
+    init();
+  } else {
+    window.addEventListener('load', init);
+  }
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
 <script src="music-player.js"></script>
