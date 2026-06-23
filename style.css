@@ -331,12 +331,70 @@ body{
   transform: rotate(90deg);
 }
 
-/* ── MOBILE NAV FIX ── */
+/* ════════════════════════════════════
+   MOBILE / TABLET NAV  (≤ 991px)
+   ════════════════════════════════════ */
 @media (max-width: 991px) {
+
   .navbar {
     top: 28px;
+    padding: 6px 0;
   }
 
+  /* ek hi clean row: logo (left) ── icons + menu (right) */
+  #mainNavbar .container-fluid {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  .logo {
+    height: 50px;
+    width: auto;
+  }
+
+  /* icon group ko right pe push karo */
+  .nav-right-icons {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav-right-icons a {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .cart-badge {
+    font-size: 10px;
+  }
+
+  /* hamburger icons ke baad, koi box/border nahi */
+  .navbar-toggler {
+    margin-left: 20px;
+    padding: 0;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none !important;
+  }
+
+  .navbar-toggler-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* dropdown menu */
   #navMenu {
     position: absolute;
     top: 100%;
@@ -346,61 +404,29 @@ body{
     border-top: 1px solid rgba(255,255,255,0.07);
     padding: 10px 0 16px;
     margin-top: 0;
+    z-index: 999;
   }
 
   .navbar-nav .nav-link {
-    padding: 10px 20px !important;
+    padding: 12px 20px !important;
     border-bottom: 1px solid rgba(255,255,255,0.05);
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .navbar-nav .nav-link:last-child {
     border-bottom: none;
   }
 
-  /* Active — mobile pe yellow/gold hatao */
-  .navbar-nav .nav-link.active {
-    color: #fff !important;
-    border-left: 2px solid rgba(255,255,255,0.3);
-    padding-left: 18px !important;
-    font-weight: 600;
-  }
-
   .navbar-nav .nav-link::after {
     display: none;
   }
 
-  .nav-right-icons {
-    gap: 14px;
-  }
-}
-@media (max-width: 576px) {
-  .top-bar {
-    padding: 2px 10px;
-  }
-
-  .navbar {
-    padding: 4px 0;
-    top: 28px;
-  }
-
-  .nav-right-icons {
-    gap: 12px;
-  }
-
-  .navbar-nav .nav-link {
-    padding: 7px 20px !important;
-  }
-
-  .logo {
-    height: 46px;
-  }
-}
-@media (max-width: 991px) {
+  /* active link mobile pe (gold underline, no left border) */
   .navbar-nav .nav-link.active {
     color: #fff !important;
     border-left: none !important;
     padding-left: 20px !important;
+    font-weight: 600;
   }
 
   .navbar-nav .nav-link.active::after {
@@ -411,6 +437,44 @@ body{
     bottom: 2px;
     left: 20px;
     transform: none;
+  }
+}
+
+/* ── chhote phones (≤ 576px) ── */
+@media (max-width: 576px) {
+
+  .top-bar {
+    padding: 2px 10px;
+  }
+
+  .navbar {
+    padding: 4px 0;
+    top: 28px;
+  }
+
+  .logo {
+    height: 44px;
+  }
+
+  .nav-right-icons {
+    gap: 16px;
+  }
+
+  .nav-right-icons a {
+    font-size: 16px;
+  }
+
+  .navbar-toggler {
+    margin-left: 16px;
+  }
+
+  .navbar-toggler-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px 20px !important;
   }
 }
 /* ════════════════════════════
