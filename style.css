@@ -527,10 +527,25 @@ body{
   background-position: center ; /* large screen — theek hai */
 }
 
+/* ── SLIDE IMAGES ── */
+.slide-3 .slide-bg {
+  background-color: #1a0808;
+  background-image: url('third-banner.webp');
+  background-size: cover;
+  background-position: center 25% ; /* large screen — theek hai */
+}
+
 /* Small screen — sirf right side dikhao */
 @media (max-width: 768px) {
   .slide-1 .slide-bg {
     background-position: right center;
+  }
+}
+
+/* Small screen — sirf right side dikhao */
+@media (max-width: 768px) {
+  .slide-3 .slide-bg {
+    background-position:center ;
   }
 }
 .slide-2 .slide-bg { background-color:#080d1a; opacity: 75%; background-image:url('website-banner-hero-C2.jpg.webp'); }
